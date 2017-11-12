@@ -3,8 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-// var users = require('./');
-// var journalEntries =;
+
 
 var port = 5000;
 
