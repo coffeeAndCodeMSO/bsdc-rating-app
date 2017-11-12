@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Test from './Components/Test.js';
+import Quote from './Components/Quote.js';
+import LoginSignup from './Components/LoginSignup.js';
 
 class App extends Component {
   render() {
@@ -8,11 +11,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Dream App</h1>
+          <Test />
+          <Quote className = "App-quote"/>
+          <LoginSignup className = "App-loginsignup" />
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
