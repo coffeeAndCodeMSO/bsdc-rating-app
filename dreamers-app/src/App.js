@@ -13,8 +13,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Dream App</h1>
           <Test />
-          <Quote className = "App-quote"/>
-          <LoginSignup className = "App-loginsignup" />
+          <Quote />
+          <LoginSignup />
         </header>
       </div>
     );

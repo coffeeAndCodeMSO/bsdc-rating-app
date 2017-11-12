@@ -6,6 +6,4 @@ class LoginSignup extends Component {
   }
 }
 
-
-
 export default LoginSignup;
