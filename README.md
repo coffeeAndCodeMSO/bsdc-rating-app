@@ -6,22 +6,41 @@
 
 1. [Technologies](#Technologies)
 2. [Team Structure](#Team)
-3. [Git Structure](#Git)
-4. [Schedule](#Schedule)
-5. [Misc](#Misc)
-6. [Docs](./docs/databaseSpec.md)
-7. [User Stories](./docs/userStories.md)
+3. [File-Structure](#File-Structure)
+4. [Git Structure](#Git)
+5. [Schedule](#Schedule)
+6. [Misc](#Misc)
+7. [Docs](./docs/databaseSpec.md)
+8. [User Stories](./docs/userStories.md)
 
 ## <a name="Technologies"></a>Technologies
 express
 mongoose
+
+## <a name="File-Structure"></a>File-Structure
+dreamers/
+  .git/
+  docs/
+  dreamersApp/
+    node_modules/
+    public/
+      static/
+        css/
+        js/
+        media/
+    src/
+  dreamy-backend/
+    node_modules/
+  .gitignore
+  README.md
+
 
 
 ## <a name="Team"></a>Team Structure
 Kerry- Security  zahnahoria@yahoo.com
 Cassidy- Front end / user experience  cassidytucker60@gmail.com
 N8- Front end  
-Keesha- Project Manager  kesshy19@gmail.com
+Keesha- Project Manager  keeshy19@gmail.com
 Matt- Stand in  mcsutton@outlook.com
 Jillian- Front end  jillian.burgan@gmail.com
 Who does what? How have you defined these roles yourself? List every current
