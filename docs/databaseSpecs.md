@@ -1,6 +1,6 @@
 # Database Specs
 
-## Data
+## Resources
 
 - users
 - journal entry

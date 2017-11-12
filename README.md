@@ -22,13 +22,15 @@ dreamers/
   .git/
   docs/
   dreamersApp/
-    build/
+    node_modules/
+    public/
       static/
         css/
         js/
         media/
-    public/
     src/
+  dreamy-backend/
+    node_modules/
   .gitignore
   README.md
 
