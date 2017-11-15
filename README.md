@@ -40,8 +40,6 @@ dreamers/
   .gitignore
   README.md
 
-
-
 ## <a name="Team"></a>Team Structure
 Kerry - Github P5.js Security - zahnahoria@yahoo.com
 Cassidy- Front end / user experience  cassidytucker60@gmail.com
