@@ -14,8 +14,14 @@
 8. [User Stories](./docs/userStories.md)
 
 ## <a name="Technologies"></a>Technologies
-express
-mongoose
+- Node
+- Express
+- Mongo
+- React
+- Webpack
+- Mongoose
+- jQuery
+- P5.js
 
 ## <a name="File-Structure"></a>File-Structure
 dreamers/
@@ -34,15 +40,13 @@ dreamers/
   .gitignore
   README.md
 
-
-
 ## <a name="Team"></a>Team Structure
-Kerry- Security  zahnahoria@yahoo.com
+Kerry - Github P5.js Security - zahnahoria@yahoo.com
 Cassidy- Front end / user experience  cassidytucker60@gmail.com
-N8- Front end  
-Keesha- Project Manager  keeshy19@gmail.com
-Matt- Stand in  mcsutton@outlook.com
-Jillian- Front end  jillian.burgan@gmail.com
+Nate- backend  
+Keesha- Project Manager / backend keeshy19@gmail.com
+Matt- Stand in Project Manager / stand in backend mcsutton@outlook.com
+Jillian- Front end / user experience  jillian.burgan@gmail.com
 Who does what? How have you defined these roles yourself? List every current
 team member here, maybe even include an email address for contacting.
 
@@ -54,7 +58,23 @@ How do you handle your branches? Who is the main contact for questions on this?
 
 ## <a name="Schedule"></a>Schedule
 
-Second week of January
+### Deadline: January 2nd
+
+Week 1: Front/backend servers, test DB Data, mockups, get API routes, begin security research, create react routes,
+Week 2: test frontend/backend, fix bugs Begin building components, create API route, update API routes, react routes, components
+Week 3: test frontend/backend, fix bugs, test API routes, build components, p5 background, implement user password security
+Week 4: test frontend/backend, fix bugs, implement user password security
+Week 6: test frontend/backend, fix bugs,
+Week 7: test frontend/backend, fix bugs, maybe cry a little
+
+Personal Schedules
+
+Kerry: Wednesday Nov. 22nd - 27th
+Keesha: Always here
+Nate: Wednesday Nov. 22nd - 26th
+Matt: Nov. 22nd-26th, Dec. 17th-24th
+Cassidy:
+Jill:
 
 What deadlines does this project have? Has your project manager laid out a basic
 timeline? Put that here.

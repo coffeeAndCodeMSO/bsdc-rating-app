@@ -7,6 +7,7 @@ var journalEntriesSchema = new Schema({
   dateCreated: Date,
   dateDeleted: Date,
   dreamDate: Date,
+  entryTitle: String,
   anonymous: Boolean,
   private: Boolean,
   description: String,

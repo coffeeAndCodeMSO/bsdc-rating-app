@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import cloud from './images/cloud.png';
 import './App.css';
+import Test from './Components/Test.js';
+import Quote from './Components/Quote.js';
+import LoginSignup from './Components/LoginSignup.js';
 
 import Test from './Components/Test.js';
 import Quote from './Components/Quote.js';
@@ -14,12 +17,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+
           <img src={cloud} className="App-cloud" alt="cloud" />
           <h1 className="App-title">Welcome to Dream App</h1>
         </header>
         <BrowserRouter>
           <Container />
         </BrowserRouter>
+  staging
       </div>
     );
   }
