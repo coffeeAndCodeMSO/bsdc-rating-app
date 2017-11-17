@@ -121,9 +121,18 @@ router.route('/users/:userid')
     });
   })
 
+  /*******************************************
+    GET ALL ENTRIES
+  *******************************************/
+
 router.route('/journals')
   .get(function(req, res) {
-    res.json({message: "gets all entries by user id"})
+      Entry.find(function(err, entry){
+        if (err)
+          res.send(err);
+
+        res.json(entry)
+      });
   })
 
   .post(function(req, res) {
@@ -147,6 +156,50 @@ router.route('/journals')
         res.json({message: "Entry created"});
     });
   })
+
+  /*******************************************
+    GET ONE ENTRY BY USER ID
+  *******************************************/
+
+  router.route('/journals/:userid')
+  .post(function(req, res) {
+    console.log(User)
+    User.findById(req.params.userid, function(err, user){
+      if (err)
+        res.send(err);
+        // var entry = new Entry();
+        // console.log("new entry")
+        // entry._id = mongoose.Types.ObjectId();
+        // entry.createdBy = req.params.userid;
+        // entry.dateCreated = new Date();
+        // entry.dreamDate = req.body.dreamDate;
+        // entry.entryTitle = req.body.entryTitle;
+        // entry.anonymous = req.body.anonymous;
+        // entry.private = req.body.private;
+        // entry.description = req.body.description;
+        // entry.personalNotes = req.body.personalNotes;
+        // entry.bedTime = req.body.bedTime;
+        // entry.wakeTime = req.body.wakeTime;
+        console.log(user)
+        console.log(req.params.userid)
+        res.json({message: 'something'})
+        // user.journalEntries.push(entry);
+        // user.save(function(err){
+        //   if(err)
+        //     res.send(err);
+        //
+        //     res.json({message: "journal entry added to users"});
+        // });
+        // entry.save(function(err){
+        //   if(err)
+        //     res.send(err);
+        //
+        //     res.json({message: "Entry created"});
+        // });
+    });
+  })
+
+
 
 router.route('/journals/:journalid')
   .get(function(req, res) {
