@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var journalEntriesSchema = require('./journalentries');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const entrySchema = require('./entry');
 
 var userSchema = new Schema({
   _id: String,
@@ -15,12 +15,13 @@ var userSchema = new Schema({
   gender: String,
   Interests: String,
   Bio: String,
-  journalEntries: [
-    journalEntriesSchema
-      ],
+  journalEntries: [{
+    type: Schema.ObjectId,
+    ref: entrySchema
+  }],
       bedTime: Date,
       wakeTime: Date
-    },
+
 })
 
 module.exports = mongoose.model('User', userSchema);
