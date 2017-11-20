@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const entrySchema = require('./entry');
 
 var userSchema = new Schema({
-  _id: String,
+  _id: mongoose.Schema.Types.ObjectId,
   dateCreated: Date,
   dateDeleted: Date,
   firstName: String,
@@ -13,15 +13,14 @@ var userSchema = new Schema({
   age: Number,
   sign: String,
   gender: String,
-  Interests: String,
-  Bio: String,
+  interests: String,
+  bio: String,
   journalEntries: [{
     type: Schema.ObjectId,
     ref: entrySchema
   }],
-      bedTime: Date,
-      wakeTime: Date
-
+  bedTime: Date,
+  wakeTime: Date
 })
 
 module.exports = mongoose.model('User', userSchema);

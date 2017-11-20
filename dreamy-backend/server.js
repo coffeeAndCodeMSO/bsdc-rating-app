@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const User = require('./src/models/users');
+const User = require('./src/models/user');
 const Entry = require('./src/models/entry');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,27 +25,17 @@ router.use(function(req, res, next){
 
 app.use('/api', router);
 
-  /*******************************************
-    GET ALL USERS
-  *******************************************/
 router.route('/users')
   .get(function(req, res) {
     User.find(function(err, users){
-      if (err)
-        res.send(err);
-
-      res.json(users)
+      if (err)a
+        res.json(users);
     });
   })
 
-  /*******************************************
-    CREATE USER
-  *******************************************/
-
+router.route('/user/create')
   .post(function(req, res) {
     var user = new User();
-    console.log("new user")
-    console.log(req)
     user._id = mongoose.Types.ObjectId();
     user.dateCreated = new Date();
     user.firstName = req.body.firstName;
@@ -57,33 +47,25 @@ router.route('/users')
     user.gender = req.body.gender;
     user.interests = req.body.interests;
     user.bio = req.body.bio;
-
-
     user.save(function(err){
       if(err)
         res.send(err);
-
-        res.json({message: "User created"});
+      res.json({message: "User created"});
     });
   })
 
-  /*******************************************
-    GET ONE USER BY ID
-  *******************************************/
-
-router.route('/users/:userid')
+router.route('/user/find/:userid')
   .get(function(req, res) {
+    console.log(req.params.userid);
     User.findById(req.params.userid, function(err, user){
       if (err)
         res.send(err);
+        console.log(user);
       res.json(user);
     });
   })
 
-  /*******************************************
-    UPDATE ONE USER BY ID
-  *******************************************/
-
+router.route('/user/update/:userid')
   .put(function(req, res) {
     console.log("update user")
     User.findById(req.params.userid, function(err, user){
@@ -98,120 +80,107 @@ router.route('/users/:userid')
         user.gender = req.body.gender ? req.body.gender:user.gender;
         user.interests = req.body.interests ? req.body.interests:user.interests;
         user.bio = req.body.bio ? req.body.bio:user.bio;
+
       user.save(function(err){
         if(err)
           res.send(err);
-
           res.json({message: "User updated"});
       });
     });
   })
 
-  /*******************************************
-    DELETE ONE USER BY ID
-  *******************************************/
-
+router.route('/user/delete/:userid')
   .delete(function(req, res) {
     User.remove({
       _id: req.params.userid
     }, function(err, user) {
       if (err)
         res.send(err);
-      res.json({message: 'Deleted'});
+        user.journalEntries.map(function(index, entry){
+          Entry.remove({
+            _id: entry
+          }, function(err, entry) {
+            if (err)
+              res.send(err);
+            console.log("deleted %s", entry);
+          });
+        });
+      res.json({message: 'User ' + user._id + ' Deleted'});
     });
   })
-
-  /*******************************************
-    GET ALL ENTRIES
-  *******************************************/
 
 router.route('/journals')
   .get(function(req, res) {
       Entry.find(function(err, entry){
         if (err)
           res.send(err);
-
-        res.json(entry)
+        res.json(entry);
       });
   })
 
-  .post(function(req, res) {
-    var entry = new Entry();
-    console.log("new entry")
-    entry._id = mongoose.Types.ObjectId();
-    entry.dateCreated = new Date();
-    entry.dreamDate = req.body.dreamDate;
-    entry.entryTitle = req.body.entryTitle;
-    entry.anonymous = req.body.anonymous;
-    entry.private = req.body.private;
-    entry.description = req.body.description;
-    entry.personalNotes = req.body.personalNotes;
-    entry.bedTime = req.body.bedTime;
-    entry.wakeTime = req.body.wakeTime;
+router.route('/journal/:journalid')
+  .get(function(req, res) {
+      Entry.findById(req.params.journalid, function(err, journal){
+        if (err)
+          res.send(err);
+        res.json(journal)
+      });
+  });
 
-    entry.save(function(err){
-      if(err)
-        res.send(err);
+router.route('/journal/delete/:journalid')
+  .get(function(req, res) {
+      Entry.findById(req.params.journalid, function(err, journal){
+        if (err)
+          res.send(err);
+        res.json(journal)
+      });
+  });
 
-        res.json({message: "Entry created"});
-    });
+  // "journalEntries": [
+  //         "5a11fa6a316a410d617ccf57",
+  //         "5a12063439492f11b3ccb0d6",
+  //         "5a12070928478f11d632dab6"
+  //     ]
+
+router.route('/user/journals/:userid')
+  .get(function(req, res) {
+    User.findById(req.params.userid)
+        .populate("journalEntries")
+        .exec(function (err, entry) {
+          if (err)
+            res.send(err);
+          console.log('The entry id is: %s', entry._id);
+        });
   })
 
-  /*******************************************
-    GET ONE ENTRY BY USER ID
-  *******************************************/
-
-  router.route('/journals/:userid')
+router.route('/journals/:userid')
   .post(function(req, res) {
-    console.log(User)
     User.findById(req.params.userid, function(err, user){
       if (err)
         res.send(err);
-        // var entry = new Entry();
-        // console.log("new entry")
-        // entry._id = mongoose.Types.ObjectId();
-        // entry.createdBy = req.params.userid;
-        // entry.dateCreated = new Date();
-        // entry.dreamDate = req.body.dreamDate;
-        // entry.entryTitle = req.body.entryTitle;
-        // entry.anonymous = req.body.anonymous;
-        // entry.private = req.body.private;
-        // entry.description = req.body.description;
-        // entry.personalNotes = req.body.personalNotes;
-        // entry.bedTime = req.body.bedTime;
-        // entry.wakeTime = req.body.wakeTime;
-        console.log(user)
-        console.log(req.params.userid)
-        res.json({message: 'something'})
-        // user.journalEntries.push(entry);
-        // user.save(function(err){
-        //   if(err)
-        //     res.send(err);
-        //
-        //     res.json({message: "journal entry added to users"});
-        // });
-        // entry.save(function(err){
-        //   if(err)
-        //     res.send(err);
-        //
-        //     res.json({message: "Entry created"});
-        // });
+        var entry = new Entry();
+        entry._id = mongoose.Types.ObjectId();
+        entry.dateCreated = new Date();
+        entry.createdBy = user._id;
+        entry.dreamDate = req.body.dreamDate;
+        entry.entryTitle = req.body.entryTitle;
+        entry.anonymous = req.body.anonymous;
+        entry.private = req.body.private;
+        entry.description = req.body.description;
+        entry.personalNotes = req.body.personalNotes;
+        entry.bedTime = req.body.bedTime;
+        entry.wakeTime = req.body.wakeTime;
+        user.journalEntries.push(entry);
+        entry.save(function(err, entry){
+          if(err)
+            res.send(err);
+        })
+        user.save(function(err, user){
+          if(err)
+            res.send(err);
+          res.json(user)
+        });
     });
-  })
-
-
-
-router.route('/journals/:journalid')
-  .get(function(req, res) {
-    res.json({message: "got one journal entry by id by user id"})
-  })
-
-  .post(function(req, res) {
-    res.json({message: "update on journal by id by user id"})
-  })
-
-  .delete(function(req, res) {
-    res.json({message: "deletes one journal entry by id by user id"})
   })
 
 app.listen(port);

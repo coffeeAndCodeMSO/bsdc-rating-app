@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const User = require('./users');
+const User = require('./user');
 
 var entrySchema = new Schema({
-  _id: String,
+  _id: mongoose.Schema.Types.ObjectId,
   createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   dateCreated: Date,
   dateDeleted: Date,
