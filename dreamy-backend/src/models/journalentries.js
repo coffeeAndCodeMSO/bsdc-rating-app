@@ -1,11 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 var journalEntriesSchema = new Schema({
   _id: String,
   dateCreated: Date,
   dateDeleted: Date,
   dreamDate: Date,
+  entryTitle: String,
   anonymous: Boolean,
   private: Boolean,
   description: String,
