@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const entrySchema = require('./entry');
 
 var userSchema = new Schema({
-  _id: String,
+  _id: mongoose.Schema.Types.ObjectId,
   dateCreated: Date,
   dateDeleted: Date,
   firstName: String,
@@ -18,10 +18,7 @@ var userSchema = new Schema({
   journalEntries: [{
     type: Schema.ObjectId,
     ref: entrySchema
-  }],
-      bedTime: Date,
-      wakeTime: Date
-
+  }]
 })
 
 module.exports = mongoose.model('User', userSchema);

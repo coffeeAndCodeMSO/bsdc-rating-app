@@ -10,8 +10,6 @@ const Entry = require('./src/models/entry');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-// mongoose.connect('ds259105.mlab.com:59105/dreamers -u n8 -p nstn8e81');
 mongoose.connect('mongodb://n8:nstn8e81@ds259105.mlab.com:59105/dreamers', {useMongoClient: true})
 var port = 5000;
 
@@ -26,7 +24,7 @@ router.use(function(req, res, next){
 app.use('/api', router);
 
   /*******************************************
-    GET ALL USERS
+    GET ALL USERS works
   *******************************************/
 router.route('/users')
   .get(function(req, res) {
@@ -39,7 +37,7 @@ router.route('/users')
   })
 
   /*******************************************
-    CREATE USER
+    CREATE USER  works
   *******************************************/
 
   .post(function(req, res) {
@@ -68,7 +66,7 @@ router.route('/users')
   })
 
   /*******************************************
-    GET ONE USER BY ID
+    GET ONE USER BY ID works
   *******************************************/
 
 router.route('/users/:userid')
@@ -81,16 +79,16 @@ router.route('/users/:userid')
   })
 
   /*******************************************
-    UPDATE ONE USER BY ID
+    UPDATE ONE USER BY ID  works
   *******************************************/
 
-  .put(function(req, res) {
+  .post(function(req, res) {
     console.log("update user")
     User.findById(req.params.userid, function(err, user){
       if (err)
         res.send(err);
         user.firstName = req.body.firstName ? req.body.firstName:user.firstName;
-        user.lastName = req.body.lastName ? req.body.firstName:user.firstName;
+        user.lastName = req.body.lastName ? req.body.lastName:user.lastName;
         user.email = req.body.email ? req.body.email:user.email;
         user.birthDate = req.body.birthDate ? req.body.birthDate:user.birthDate;
         user.age = req.body.age ? req.body.age:user.age;
@@ -108,7 +106,7 @@ router.route('/users/:userid')
   })
 
   /*******************************************
-    DELETE ONE USER BY ID
+    DELETE ONE USER BY ID works
   *******************************************/
 
   .delete(function(req, res) {
@@ -135,6 +133,9 @@ router.route('/journals')
       });
   })
 
+  /*******************************************
+    CREATE NEW ENTRY
+  *******************************************/
   .post(function(req, res) {
     var entry = new Entry();
     console.log("new entry")
@@ -158,60 +159,95 @@ router.route('/journals')
   })
 
   /*******************************************
-    GET ONE ENTRY BY USER ID
+    CREATE ONE ENTRY BY USER ID works
   *******************************************/
 
   router.route('/journals/:userid')
   .post(function(req, res) {
-    console.log(User)
+    //console.log(User)
     User.findById(req.params.userid, function(err, user){
       if (err)
         res.send(err);
-        // var entry = new Entry();
-        // console.log("new entry")
-        // entry._id = mongoose.Types.ObjectId();
-        // entry.createdBy = req.params.userid;
-        // entry.dateCreated = new Date();
-        // entry.dreamDate = req.body.dreamDate;
-        // entry.entryTitle = req.body.entryTitle;
-        // entry.anonymous = req.body.anonymous;
-        // entry.private = req.body.private;
-        // entry.description = req.body.description;
-        // entry.personalNotes = req.body.personalNotes;
-        // entry.bedTime = req.body.bedTime;
-        // entry.wakeTime = req.body.wakeTime;
-        console.log(user)
-        console.log(req.params.userid)
-        res.json({message: 'something'})
-        // user.journalEntries.push(entry);
-        // user.save(function(err){
-        //   if(err)
-        //     res.send(err);
-        //
-        //     res.json({message: "journal entry added to users"});
-        // });
-        // entry.save(function(err){
-        //   if(err)
-        //     res.send(err);
-        //
-        //     res.json({message: "Entry created"});
-        // });
-    });
+        var entry = new Entry();
+        //console.log("new entry")
+        entry._id = mongoose.Types.ObjectId();
+        entry.dateCreated = new Date();
+        entry.createdBy = user._id;
+        entry.dreamDate = req.body.dreamDate;
+        entry.entryTitle = req.body.entryTitle;
+        entry.anonymous = req.body.anonymous;
+        entry.private = req.body.private;
+        entry.description = req.body.description;
+        entry.personalNotes = req.body.personalNotes;
+        entry.bedTime = req.body.bedTime;
+        entry.wakeTime = req.body.wakeTime;
+        //console.log(user)
+        //console.log(req.params.userid)
+        user.journalEntries.push(entry);
+        entry.save(function(err, entry){
+          if(err)
+            res.send(err);
+          })
+          user.save(function (err, user){
+            if(err)
+              res.send(err);
+            res.json(user)
+          })
+
+        });
   })
 
-
+/***************************
+GET ONE ENTRY BY ENTRY ID works
+***************************/
 
 router.route('/journals/:journalid')
   .get(function(req, res) {
-    res.json({message: "got one journal entry by id by user id"})
+    Entry.findById(req.params.journalid, function(err, entry){
+      if (err)
+        res.send(err);
+      res.json(entry);
+    });
   })
+
+  /***************************
+  UPDATE ONE ENTRY BY ENTRY ID not working !!!!
+  ***************************/
 
   .post(function(req, res) {
-    res.json({message: "update on journal by id by user id"})
+    Entry.findById(req.params.entryid, function(err, entry){
+      if (err)
+        res.send(err);
+        entry.dreamDate = req.body.dreamDate ? req.body.dreamDate:entry.dreamDate;
+        entry.entryTitle = req.body.entryTitle ? req.body.entryTitle:entry.entryTitle;
+        entry.anonymous = req.body.anonymous ? req.body.anonymous:entry.anonymous;
+        entry.private = req.body.private ? req.body.private:entry.private;
+        entry.description = req.body.description ? req.body.description:entry.description;
+        entry.personalNotes = req.body.personalNotes ? req.body.personalNotes:entry.personalNotes;
+        entry.tags = req.body.tags ? req.body.tags:entry.tags;
+        entry.bedTime = req.body.bedTime ? req.body.bedTime:entry.bedTime;
+        entry.wakeTime = req.body.wakeTime ? req.body.wakeTime:entry.wakeTime;
+      entry.save(function(err){
+        if(err)
+          res.send(err);
+
+          res.json({message: "Entry updated"});
+      });
+    })
   })
 
+/***************************
+DELETE ONE ENTRY BY ENTRY ID
+***************************/
+
   .delete(function(req, res) {
-    res.json({message: "deletes one journal entry by id by user id"})
+    Entry.remove({
+      _id: req.params.entryid
+    }, function(err, user) {
+      if (err)
+        res.send(err);
+      res.json({message: 'Deleted'});
+    });
   })
 
 app.listen(port);
