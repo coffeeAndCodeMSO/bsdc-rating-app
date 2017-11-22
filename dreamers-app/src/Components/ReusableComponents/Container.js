@@ -15,7 +15,7 @@ export default class Container extends React.Component {
            <div className = "nav navbar-nav">
             <ButtonGroup>
             <Button><Link to = "/">Home</Link></Button>
-            <Button><Link to = "/SettingsPage">Setting</Link></Button>
+            <Button><Link to = "/SettingsPage">Settings</Link></Button>
             <Button><Link to = "/AnalyticsPage">Analyze</Link></Button>
             <Button><Link to = "/LogPage">Log</Link></Button>
             <Button><Link to = "/MainPage">Login</Link></Button>

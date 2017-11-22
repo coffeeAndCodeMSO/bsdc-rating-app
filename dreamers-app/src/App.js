@@ -6,7 +6,8 @@ import Test from './Components/Test.js';
 import Quote from './Components/Quote.js';
 import LoginSignup from './Components/LoginSignup.js';
 import {BrowserRouter} from "react-router-dom";
-import Container from './Components/ReusableComponents/Container.js'
+import Container from './Components/ReusableComponents/Container.js';
+import Settings from './Components/Settings.js';
 
 class App extends Component {
   render() {
