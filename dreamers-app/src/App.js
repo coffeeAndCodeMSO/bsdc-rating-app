@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import cloud from './images/cloud.png';
 import './App.css';
 
 import Test from './Components/Test.js';
@@ -14,10 +15,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={cloud} className="App-cloud" alt="cloud" />
-          <h1 className="App-title">Welcome to Dream App</h1>
-        </header>
         <BrowserRouter>
           <Container />
         </BrowserRouter>
