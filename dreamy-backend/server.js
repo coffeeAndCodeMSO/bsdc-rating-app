@@ -3,12 +3,18 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+mongoose.Promise = require('bluebird');
 
 const User = require('./src/models/users');
 const Entry = require('./src/models/entry');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
 // mongoose.connect('ds259105.mlab.com:59105/dreamers -u n8 -p nstn8e81');

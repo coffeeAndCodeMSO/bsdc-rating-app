@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import UploadScreen from './UploadScreen';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-
 
 class Login extends Component {
   constructor(props){
@@ -44,10 +41,8 @@ class Login extends Component {
           console.log(error);
         });
   }
-
   render(){
     return(
-
       <div>
         <MuiThemeProvider>
           <div key='mainLogin'>
@@ -80,6 +75,4 @@ class Login extends Component {
     );
   }
 }
-
-
 export default Login;

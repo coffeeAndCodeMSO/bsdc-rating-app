@@ -4,8 +4,6 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-
 class Register extends Component {
   constructor(props){
     super(props);
@@ -46,7 +44,6 @@ class Register extends Component {
      console.log(error);
    });
   }
-
   render() {
     return (
       <div>
@@ -95,5 +92,4 @@ class Register extends Component {
     );
   }
 }
-
 export default Register;
