@@ -34,7 +34,6 @@ const Settings = () => (
         <Subheader>Settings</Subheader>
         <ListItem primaryText="Entry Reminder?" rightToggle={<Toggle />} />
         <ListItem primaryText="Public/Private" rightToggle={<Toggle />} />
-        
       </List>
       <Divider />
   </div>

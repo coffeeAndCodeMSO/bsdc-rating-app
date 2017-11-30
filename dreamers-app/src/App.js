@@ -8,6 +8,7 @@ import MenuItem from 'material-ui/MenuItem'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -20,7 +21,7 @@ class App extends Component {
     return (
       <div>
         <AppBar
-          title="Title"
+          title="Dreamers"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonTouchTap={this.toggleDrawer}
           style={{backgroundColor: '#3b0066',}}
@@ -72,4 +73,5 @@ class App extends Component {
     )
   }
 }
+
 export default App;
