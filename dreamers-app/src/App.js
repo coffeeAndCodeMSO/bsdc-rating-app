@@ -1,24 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Test from './Components/Test.js';
-import Quote from './Components/Quote.js';
-import LoginSignup from './Components/LoginSignup.js';
+import Dreams from './Components/Dreams.js';
+import Settings from './Components/Settings.js'
+import Log from './Components/Log.js';
+import Home from './Home.js'
 
-class App extends Component {
+import {BrowserRouter, Route} from "react-router-dom";
+import Header from './Components/ReusableComponents/Header';
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false,
+      title: "Whatever"
+    }
+  }
+
+  toggleDrawer = () => this.setState({ open: !this.state.open })
+  setTitle = (title) => this.setState({title: title })
+  update = (title) => this.setState({
+    open: !this.state.open,
+    title: title
+  })
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Dream App</h1>
-          <Test />
-          <Quote />
-          <LoginSignup />
-        </header>
-      </div>
-    );
+      <BrowserRouter>
+          <div>
+              <Header title={this.state.title}
+                      open={this.state.open}
+                      setValue={this.toggleDrawer}
+                      update={this.update}
+              />
+              <Route
+                path="/"
+                exact
+                component={Home}
+                setTitle={this.setTitle.bind(this)}
+              />
+              <Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
+              <Route path="/Log" component={Log} setTitle={this.setTitle}/>
+              <Route path="/Settings" component={Settings} setTitle={this.setTitle}/>
+          </div>
+      </BrowserRouter>
+    )
   }
 }
-
-export default App;
