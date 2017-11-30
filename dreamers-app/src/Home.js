@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginScreen from './Components/LoginScreen';
-import Header from './Components/ReusableComponents/Header';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 injectTapEventPlugin();
 
-class Main extends Component {
+class Home extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -15,23 +14,9 @@ class Main extends Component {
     }
   }
 
-  setPageTitle = () => {this.props.setTitle("MEH")};
-  componentWillMount(){
-    () => this.props.setValue();
-    var loginPage =[];
-    loginPage.push(<LoginScreen parentContext={this}/>);
-    this.setState({
-                  loginPage:loginPage
-                    })
-  }
-
-  shouldComponentUpdate() {
-    this.setPageTitle();
-  }
-
   render() {
     return (
-      <div className="Main">
+      <div className="Home">
         {this.state.loginPage}
         {this.state.uploadScreen}
       </div>
@@ -39,4 +24,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Home;
