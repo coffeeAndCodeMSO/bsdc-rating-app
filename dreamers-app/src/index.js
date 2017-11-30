@@ -12,5 +12,4 @@ const Root = () => (
   </MuiThemeProvider>
 );
 
-
 ReactDOM.render(<Root />, document.getElementById('root'));
