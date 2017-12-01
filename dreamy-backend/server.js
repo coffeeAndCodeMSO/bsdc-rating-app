@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const User = require('./src/models/users');
+const User = require('./src/models/user');
 const Entry = require('./src/models/entry');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,28 +22,19 @@ router.use(function(req, res, next){
 })
 
 app.use('/api', router);
-
-  /*******************************************
-    GET ALL USERS works
-  *******************************************/
+// works //
 router.route('/users')
   .get(function(req, res) {
     User.find(function(err, users){
       if (err)
-        res.send(err);
-
-      res.json(users)
+      console.log(users)
+        res.json(users);
     });
   })
-
-  /*******************************************
-    CREATE USER  works
-  *******************************************/
-
+//works//
+router.route('/user/create')
   .post(function(req, res) {
     var user = new User();
-    console.log("new user")
-    console.log(req)
     user._id = mongoose.Types.ObjectId();
     user.dateCreated = new Date();
     user.firstName = req.body.firstName;
@@ -55,33 +46,25 @@ router.route('/users')
     user.gender = req.body.gender;
     user.interests = req.body.interests;
     user.bio = req.body.bio;
-
-
     user.save(function(err){
       if(err)
         res.send(err);
-
-        res.json({message: "User created"});
+      res.json({message: "User created"});
     });
   })
-
-  /*******************************************
-    GET ONE USER BY ID works
-  *******************************************/
-
-router.route('/users/:userid')
+//works//
+router.route('/user/find/:userid')
   .get(function(req, res) {
+    console.log(req.params.userid);
     User.findById(req.params.userid, function(err, user){
       if (err)
         res.send(err);
+        console.log(user);
       res.json(user);
     });
   })
-
-  /*******************************************
-    UPDATE ONE USER BY ID  works
-  *******************************************/
-
+//works//
+router.route('/user/update/:userid')
   .post(function(req, res) {
     console.log("update user")
     User.findById(req.params.userid, function(err, user){
@@ -96,80 +79,80 @@ router.route('/users/:userid')
         user.gender = req.body.gender ? req.body.gender:user.gender;
         user.interests = req.body.interests ? req.body.interests:user.interests;
         user.bio = req.body.bio ? req.body.bio:user.bio;
+
       user.save(function(err){
         if(err)
           res.send(err);
-
           res.json({message: "User updated"});
       });
     });
   })
-
-  /*******************************************
-    DELETE ONE USER BY ID works
-  *******************************************/
-
+//works to delete user but not journal entries//
+router.route('/user/delete/:userid')
   .delete(function(req, res) {
     User.remove({
       _id: req.params.userid
-    }, function(err, user) {
+    }, function(err, user){
       if (err)
         res.send(err);
-      res.json({message: 'Deleted'});
+
+      res.json({ message: 'User deleted'});
     });
-  })
-
-  /*******************************************
-    GET ALL ENTRIES
-  *******************************************/
-
+  });
+//works//
 router.route('/journals')
   .get(function(req, res) {
       Entry.find(function(err, entry){
         if (err)
           res.send(err);
-
-        res.json(entry)
+        res.json(entry);
       });
   })
+//works//
+router.route('/journal/:journalid')
+  .get(function(req, res) {
+      Entry.findById(req.params.journalid, function(err, journal){
+        if (err)
+          res.send(err);
+        res.json(journal)
+      });
+  });
+// seems to work but does not actually delete from mlab//
+router.route('/journal/delete/:journalid')
+  .delete(function(req, res) {
+      Entry.remove({
+        id: req.params.journalid
+      }, function(err, journal){
+        if (err)
+          res.send(err);
 
-  /*******************************************
-    CREATE NEW ENTRY
-  *******************************************/
-  .post(function(req, res) {
-    var entry = new Entry();
-    console.log("new entry")
-    entry._id = mongoose.Types.ObjectId();
-    entry.dateCreated = new Date();
-    entry.dreamDate = req.body.dreamDate;
-    entry.entryTitle = req.body.entryTitle;
-    entry.anonymous = req.body.anonymous;
-    entry.private = req.body.private;
-    entry.description = req.body.description;
-    entry.personalNotes = req.body.personalNotes;
-    entry.bedTime = req.body.bedTime;
-    entry.wakeTime = req.body.wakeTime;
+        res.json({ message: 'Entry Deleted'});
+      });
+  });
 
-    entry.save(function(err){
-      if(err)
-        res.send(err);
-
-        res.json({message: "Entry created"});
-    });
+  // "journalEntries": [
+  //         "5a11fa6a316a410d617ccf57",
+  //         "5a12063439492f11b3ccb0d6",
+  //         "5a12070928478f11d632dab6"
+  //     ]
+// ? //
+router.route('/user/journals/:userid')
+  .get(function(req, res) {
+    User.findById(req.params.userid)
+        .populate("journalEntries")
+        .exec(function (err, entry) {
+          if (err)
+            res.send(err);
+          console.log('The entry id is: %s', entry._id);
+        });
   })
 
-  /*******************************************
-    CREATE ONE ENTRY BY USER ID works
-  *******************************************/
-
-  router.route('/journals/:userid')
+router.route('/journals/:userid')
   .post(function(req, res) {
-    //console.log(User)
     User.findById(req.params.userid, function(err, user){
       if (err)
         res.send(err);
         var entry = new Entry();
-        //console.log("new entry")
         entry._id = mongoose.Types.ObjectId();
         entry.dateCreated = new Date();
         entry.createdBy = user._id;
@@ -181,72 +164,16 @@ router.route('/journals')
         entry.personalNotes = req.body.personalNotes;
         entry.bedTime = req.body.bedTime;
         entry.wakeTime = req.body.wakeTime;
-        //console.log(user)
-        //console.log(req.params.userid)
         user.journalEntries.push(entry);
         entry.save(function(err, entry){
           if(err)
             res.send(err);
-          })
-          user.save(function (err, user){
-            if(err)
-              res.send(err);
-            res.json(user)
-          })
-
+        })
+        user.save(function(err, user){
+          if(err)
+            res.send(err);
+          res.json(user)
         });
-  })
-
-/***************************
-GET ONE ENTRY BY ENTRY ID works
-***************************/
-
-router.route('/journals/:journalid')
-  .get(function(req, res) {
-    Entry.findById(req.params.journalid, function(err, entry){
-      if (err)
-        res.send(err);
-      res.json(entry);
-    });
-  })
-
-  /***************************
-  UPDATE ONE ENTRY BY ENTRY ID not working !!!!
-  ***************************/
-
-  .post(function(req, res) {
-    Entry.findById(req.params.entryid, function(err, entry){
-      if (err)
-        res.send(err);
-        entry.dreamDate = req.body.dreamDate ? req.body.dreamDate:entry.dreamDate;
-        entry.entryTitle = req.body.entryTitle ? req.body.entryTitle:entry.entryTitle;
-        entry.anonymous = req.body.anonymous ? req.body.anonymous:entry.anonymous;
-        entry.private = req.body.private ? req.body.private:entry.private;
-        entry.description = req.body.description ? req.body.description:entry.description;
-        entry.personalNotes = req.body.personalNotes ? req.body.personalNotes:entry.personalNotes;
-        entry.tags = req.body.tags ? req.body.tags:entry.tags;
-        entry.bedTime = req.body.bedTime ? req.body.bedTime:entry.bedTime;
-        entry.wakeTime = req.body.wakeTime ? req.body.wakeTime:entry.wakeTime;
-      entry.save(function(err){
-        if(err)
-          res.send(err);
-
-          res.json({message: "Entry updated"});
-      });
-    })
-  })
-
-/***************************
-DELETE ONE ENTRY BY ENTRY ID
-***************************/
-
-  .delete(function(req, res) {
-    Entry.remove({
-      _id: req.params.entryid
-    }, function(err, user) {
-      if (err)
-        res.send(err);
-      res.json({message: 'Deleted'});
     });
   })
 

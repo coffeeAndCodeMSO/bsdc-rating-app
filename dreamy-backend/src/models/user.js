@@ -13,12 +13,14 @@ var userSchema = new Schema({
   age: Number,
   sign: String,
   gender: String,
-  Interests: String,
-  Bio: String,
+  interests: String,
+  bio: String,
   journalEntries: [{
     type: Schema.ObjectId,
     ref: entrySchema
-  }]
+  }],
+  bedTime: Date,
+  wakeTime: Date
 })
 
 module.exports = mongoose.model('User', userSchema);

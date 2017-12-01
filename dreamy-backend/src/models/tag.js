@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const entrySchema = require('./entry');
-const User = require('./users');
+const User = require('./user');
 
 var tagSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
