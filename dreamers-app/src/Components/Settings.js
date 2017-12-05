@@ -8,7 +8,7 @@ import Toggle from 'material-ui/Toggle';
 const styles = {
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
 };
 

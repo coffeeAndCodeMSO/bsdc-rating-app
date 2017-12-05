@@ -59,22 +59,15 @@ class LoginScreen extends Component {
         {this.state.loginscreen}
       <div>
       {this.state.loginmessage}
-      <MuiThemeProvider>
         <div key='button'>
           <RaisedButton
             label={this.state.buttonLabel}
-            labelColor='#ffffff'
-            buttonStyle={{backgroundColor:'#3b0066'}}
             onClick={(event) => this.handleClick(event)}/>
         </div>
-      </MuiThemeProvider>
     </div>
   </div>
   );
  }
 }
-const style = {
-  margin: 15,
-};
 
 export default LoginScreen;

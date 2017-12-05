@@ -14,7 +14,7 @@ class Login extends Component {
     }
   }
   handleClick(event){
-    var apiBaseUrl ="http://localhost:3000/api";
+    var apiBaseUrl ="http://localhost:5000/api";
     var self = this;
     var payload={
       "email":this.state.username,
@@ -26,8 +26,8 @@ class Login extends Component {
           if(response.data.code === 200){
             console.log("Login successfull");
         var uploadScreen=[];
-          uploadScreen.push(<UploadScreen MainContext={self.props.MainContext}/>)
-          self.props.MainContext.setState({loginPage:[],uploadScreen:uploadScreen})
+          uploadScreen.push(<UploadScreen HomeContext={self.props.HomeContext}/>)
+          self.props.HomeContext.setState({loginPage:[],uploadScreen:uploadScreen})
           }
           else if(response.data.code === 204){
             console.log("Username password do not match");
@@ -44,8 +44,7 @@ class Login extends Component {
   render(){
     return(
       <div>
-        <MuiThemeProvider>
-          <div key='mainLogin'>
+          <div key='HomeLogin'>
           <TextField
             hintText="Enter your Username"
             floatingLabelText="Username"
@@ -62,15 +61,10 @@ class Login extends Component {
             />
           <br/>
           <RaisedButton
-            label="Submit"
-            labelColor='#ffffff'
+            label="Login"
             onClick={(event) => this.handleClick(event)}
-            buttonStyle={{
-              backgroundColor:'#3b0066',
-            }}
             />
         </div>
-      </MuiThemeProvider>
       </div>
     );
   }

@@ -3,7 +3,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 class Register extends Component {
   constructor(props){
     super(props);
@@ -47,19 +46,25 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <MuiThemeProvider>
           <div>
+            <TextField
+              hintText="Enter your UserName"
+              floatingLabelText="UserName"
+              underlineStyle={{borderColor:"#ff0000"}}
+              onChange = {(event,newValue) => this.setState({first_name:newValue})}
+              />
+            <br/>
            <TextField
              hintText="Enter your First Name"
              floatingLabelText="First Name"
-             errorText="This field is required."
+             underlineStyle={{borderColor:"#ff0000"}}
              onChange = {(event,newValue) => this.setState({first_name:newValue})}
              />
            <br/>
            <TextField
              hintText="Enter your Last Name"
              floatingLabelText="Last Name"
-             errorText="This field is required."
+             underlineStyle={{borderColor:"#ff0000"}}
              onChange = {(event,newValue) => this.setState({last_name:newValue})}
              />
            <br/>
@@ -67,27 +72,31 @@ class Register extends Component {
              hintText="Enter your Email"
              type="email"
              floatingLabelText="Email"
-             errorText="This field is required."
+             underlineStyle={{borderColor:"#ff0000"}}
              onChange = {(event,newValue) => this.setState({email:newValue})}
              />
            <br/>
            <TextField
-             type = "password"
+             type = "Password"
              hintText="Enter your Password"
              floatingLabelText="Password"
-             errorText="This field is required."
+             underlineStyle={{borderColor:"#ff0000"}}
              onChange = {(event,newValue) => this.setState({password:newValue})}
              />
            <br/>
+             <TextField
+               type = "Password"
+               hintText="ReEnter your Password"
+               floatingLabelText="ReEnter your Password"
+               underlineStyle={{borderColor:"#ff0000"}}
+               onChange = {(event,newValue) => this.setState({password:newValue})}
+               />
+             <br/>
            <RaisedButton
              label="Submit"
-             labelColor='#ffffff'
              onClick={(event) => this.handleClick(event)}
-             buttonStyle={{
-             backgroundColor:'#3b0066'}}
              />
           </div>
-        </MuiThemeProvider>
       </div>
     );
   }
