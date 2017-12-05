@@ -79,7 +79,6 @@ router.route('/journal/update/:journalid')
     Entry.findById(req.params.journalid, (err, journal) => {
       if (err)
         res.send(err);
-      console.log(journal);
       journal.dreamDate = req.body.dreamDate || journal.dreamDate;
       journal.entryTitle = req.body.entryTitle || journal.entryTitle;
       journal.anonymous = req.body.anonymous || journal.anonymous;
