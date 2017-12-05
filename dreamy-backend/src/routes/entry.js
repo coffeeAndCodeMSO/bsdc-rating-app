@@ -24,7 +24,6 @@ router.route('/journals')
 router.route('/journal/:journalid')
   .get(function(req, res) {
     Entry.findById(req.params.journalid, function(err, journal) {
-      console.log(journal);
       if (err)
         res.send(err);
       res.json(journal)
