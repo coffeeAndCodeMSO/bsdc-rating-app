@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import LoginScreen from './Components/LoginScreen';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
@@ -13,7 +13,13 @@ class Home extends Component {
       uploadScreen:[]
     }
   }
-
+  componentWillMount(){
+    var loginPage =[];
+    loginPage.push(<LoginScreen parentContext={this}/>);
+    this.setState({
+                  loginPage:loginPage
+                    })
+                  }
   render() {
     return (
       <div className="Home">

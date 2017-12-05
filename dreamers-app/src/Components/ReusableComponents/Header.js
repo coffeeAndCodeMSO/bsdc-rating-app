@@ -10,7 +10,6 @@ import { AppBar , Avatar, Drawer, MenuItem }  from 'material-ui';
              title={this.props.title}
              iconClassNameRight="muidocs-icon-navigation-expand-more"
              onLeftIconButtonTouchTap={() => this.props.setValue()}
-             style={{backgroundColor: '#3b0066',}}
            />
            <Drawer
              docked={false}
@@ -21,7 +20,11 @@ import { AppBar , Avatar, Drawer, MenuItem }  from 'material-ui';
            <Avatar
              size={100}
            />
-
+           <MenuItem
+             primaryText="HomeScreen"
+             containerElement={<Link to="/" />}
+             onTouchTap={() => this.props.update("Login")}
+           />
              <MenuItem
                primaryText="Login/SignUp"
                containerElement={<Link to="/Login" />}

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import TextField from 'material-ui/TextField';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import './Log.css'
+import '../css/Log.css'
 
 export default class Log extends Component {
 
