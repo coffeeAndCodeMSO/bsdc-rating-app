@@ -55,7 +55,6 @@ router.route('/user/find/:userid')
 //update user by id//
 router.route('/user/update/:userid')
   .post(function(req, res) {
-    console.log("update user")
     User.findById(req.params.userid, function(err, user) {
       if (err)
         res.send(err);
