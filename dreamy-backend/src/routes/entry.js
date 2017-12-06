@@ -28,7 +28,7 @@ router.route('/journal/:journalid')
         res.send(err);
       res.json(journal)
     });
-  });
+  })
 // seems to work but does not actually delete from mlab//
 router.route('/journal/delete/:journalid')
   .delete(function(req, res) {
@@ -42,7 +42,7 @@ router.route('/journal/delete/:journalid')
         message: 'Entry Deleted'
       });
     });
-  });
+  })
 // create new journal entry with user id//
 router.route('/journals/:userid')
   .post(function(req, res) {
@@ -70,6 +70,27 @@ router.route('/journals/:userid')
         if (err)
           res.send(err);
         res.json(user)
+      });
+    });
+  })
+// update a journal entry//
+router.route('/journal/update/:journalid')
+  .put(function(req, res) {
+    Entry.findById(req.params.journalid, (err, journal) => {
+      if (err)
+        res.send(err);
+      journal.dreamDate = req.body.dreamDate || journal.dreamDate;
+      journal.entryTitle = req.body.entryTitle || journal.entryTitle;
+      journal.anonymous = req.body.anonymous || journal.anonymous;
+      journal.private = req.body.private || journal.private;
+      journal.description = req.body.description || journal.description;
+      journal.personalNotes = req.body.personalNotes || journal.personalNotes;
+      journal.bedTime = req.body.bedTime || journal.bedTime;
+      journal.wakeTime = req.body.wakeTime || journal.wakeTime;
+      journal.save((err, journal) => {
+        if (err)
+          res.send(err);
+        res.json(journal)
       });
     });
   })
