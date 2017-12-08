@@ -8,7 +8,7 @@ var tagSchema = new Schema({
   createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   journalOf: {type: mongoose.Schema.Types.ObjectId, ref: 'Entry'},
   dateCreated: Date,
-  tag: String
+  description: String
 })
 
 module.exports = mongoose.model('Tag', tagSchema);
