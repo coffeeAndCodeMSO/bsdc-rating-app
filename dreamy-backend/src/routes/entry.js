@@ -13,8 +13,8 @@ mongoose.connect('mongodb://n8:nstn8e81@ds259105.mlab.com:59105/dreamers', {
 
 //get all journals//
 router.route('/journals')
-  .get(function(req, res) {
-    Entry.find(function(err, entry) {
+  .get((req, res) => {
+    Entry.find((err, entry) => {
       if (err)
         res.send(err);
       res.json(entry);
@@ -22,8 +22,8 @@ router.route('/journals')
   })
 //get journal by journal id//
 router.route('/journal/:journalid')
-  .get(function(req, res) {
-    Entry.findById(req.params.journalid, function(err, journal) {
+  .get((req, res) => {
+    Entry.findById(req.params.journalid, (err, journal) => {
       if (err)
         res.send(err);
       res.json(journal)
@@ -31,10 +31,10 @@ router.route('/journal/:journalid')
   })
 // seems to work but does not actually delete from mlab//
 router.route('/journal/delete/:journalid')
-  .delete(function(req, res) {
+  .delete((req, res) => {
     Entry.remove({
       id: req.params.journalid
-    }, function(err, journal) {
+    }, (err, journal) => {
       if (err)
         res.send(err);
 
@@ -45,8 +45,8 @@ router.route('/journal/delete/:journalid')
   })
 // create new journal entry with user id//
 router.route('/journals/:userid')
-  .post(function(req, res) {
-    User.findById(req.params.userid, function(err, user) {
+  .post((req, res) => {
+    User.findById(req.params.userid, (err, user) => {
       if (err)
         res.send(err);
       var entry = new Entry();
@@ -62,11 +62,11 @@ router.route('/journals/:userid')
       entry.bedTime = req.body.bedTime;
       entry.wakeTime = req.body.wakeTime;
       user.journalEntries.push(entry);
-      entry.save(function(err, entry) {
+      entry.save((err, entry) => {
         if (err)
           res.send(err);
       })
-      user.save(function(err, user) {
+      user.save((err, user) => {
         if (err)
           res.send(err);
         res.json(user)
@@ -75,7 +75,7 @@ router.route('/journals/:userid')
   })
 // update a journal entry//
 router.route('/journal/update/:journalid')
-  .put(function(req, res) {
+  .put((req, res) => {
     Entry.findById(req.params.journalid, (err, journal) => {
       if (err)
         res.send(err);
@@ -90,7 +90,7 @@ router.route('/journal/update/:journalid')
       journal.save((err, journal) => {
         if (err)
           res.send(err);
-        res.json(journal)
+        res.json(journal);
       });
     });
   })

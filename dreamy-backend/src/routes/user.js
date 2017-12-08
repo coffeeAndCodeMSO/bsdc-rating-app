@@ -11,8 +11,8 @@ mongoose.connect('mongodb://n8:nstn8e81@ds259105.mlab.com:59105/dreamers', {
 })
 
 router.route('/users')
-  .get(function(req, res) {
-    User.find(function(err, users) {
+  .get((req, res) => {
+    User.find((err, users) => {
       if (err)
         console.log(users)
       res.json(users);
@@ -20,7 +20,7 @@ router.route('/users')
   })
 //create user//
 router.route('/user/create')
-  .post(function(req, res) {
+  .post((req, res) => {
     var user = new User();
     user._id = mongoose.Types.ObjectId();
     user.dateCreated = new Date();
@@ -33,7 +33,7 @@ router.route('/user/create')
     user.gender = req.body.gender;
     user.interests = req.body.interests;
     user.bio = req.body.bio;
-    user.save(function(err) {
+    user.save((err) => {
       if (err)
         res.send(err);
       res.json({
@@ -43,19 +43,17 @@ router.route('/user/create')
   })
 //find user by id//
 router.route('/user/find/:userid')
-  .get(function(req, res) {
-    console.log(req.params.userid);
-    User.findById(req.params.userid, function(err, user) {
+  .get((req, res) => {
+    User.findById(req.params.userid, (err, user) => {
       if (err)
         res.send(err);
-      console.log(user);
       res.json(user);
     });
   })
 //update user by id//
 router.route('/user/update/:userid')
-  .post(function(req, res) {
-    User.findById(req.params.userid, function(err, user) {
+  .post((req, res) => {
+    User.findById(req.params.userid, (err, user) => {
       if (err)
         res.send(err);
       user.firstName = req.body.firstName ? req.body.firstName : user.firstName;
@@ -68,7 +66,7 @@ router.route('/user/update/:userid')
       user.interests = req.body.interests ? req.body.interests : user.interests;
       user.bio = req.body.bio ? req.body.bio : user.bio;
 
-      user.save(function(err) {
+      user.save((err) => {
         if (err)
           res.send(err);
         res.json({
@@ -79,10 +77,10 @@ router.route('/user/update/:userid')
   })
 //works to delete user but not journal entries//
 router.route('/user/delete/:userid')
-  .delete(function(req, res) {
+  .delete((req, res) => {
     User.remove({
       _id: req.params.userid
-    }, function(err, user) {
+    }, (err, user) => {
       if (err)
         res.send(err);
 
