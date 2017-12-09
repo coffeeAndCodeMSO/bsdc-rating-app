@@ -11,6 +11,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -29,44 +30,40 @@
     </noscript>
 
     <div id="root">
+      <script id="gradient_vert" type="x-shader/x-vertex">
+        varying vec2 vUv;
 
-    <script id="gradient_vert" type="x-shader/x-vertex">
-      varying vec2 vUv;
+        void main(){
+          vUv = uv;
+          gl_Position = vec4( position, 1.0 );
+        }
+      </script>
+      <script id="gradient_frag" type="x-shader/x-fragment">
+        uniform vec4 color1;
+        uniform vec4 color2;
+        uniform float time;
 
-      void main(){
-        vUv = uv;
-        gl_Position = vec4( position, 1.0 );
-      }
-    </script>
+        varying vec2 vUv;
 
-		<script id="gradient_frag" type="x-shader/x-fragment">
-			uniform vec4 color1;
-			uniform vec4 color2;
-			uniform float time;
+        vec4 generateGradient(vec4 c1, vec4 c2, vec2 uv){
+          vec4 c = mix(c1, c2, uv.x + uv.y - 2.0 * uv.x * uv.y);
+          return c;
+        }
+      /**********************************/
+        void main(){
+          vec2 uv = vUv;
+          vec4 color;
 
-			varying vec2 vUv;
+          float noise;
 
-			vec4 generateGradient(vec4 c1, vec4 c2, vec2 uv){
-				vec4 c = mix(c1, c2, uv.x + uv.y - 2.0 * uv.x * uv.y);
-				return c;
-			}
-		/**********************************/
-			void main(){
-				vec2 uv = vUv;
-				vec4 color;
+          uv = vec2(uv.x * (cos(time)+1.0)/2.0,uv.y * (sin(time)+1.0)/2.0);
+          color = generateGradient(color1,color2,uv);
 
-				float noise;
-
-				uv = vec2(uv.x * (cos(time)+1.0)/2.0,uv.y * (sin(time)+1.0)/2.0);
-				color = generateGradient(color1,color2,uv);
-
-				gl_FragColor = color;
-			}
-		</script>
-
-		<script src="js/three.min.js"></script>
-		<script type="text/javascript" src="./js/gradient.js"></script>
-  </div>
-
+          gl_FragColor = color;
+        }
+      </script>
+      <script src="js/three.min.js"></script>
+      <script type="text/javascript" src="./js/gradient.js"></script>
+    </div>
   </body>
 </html>
