@@ -22,9 +22,6 @@ function init() {
   renderer.setSize(width, height);
   document.body.appendChild(renderer.domElement);
 
-  renderer.domElement.classList.add('background');
-
-
   var planeGeometry = new THREE.PlaneBufferGeometry(2, 2);
 
   gradientUniforms = {
