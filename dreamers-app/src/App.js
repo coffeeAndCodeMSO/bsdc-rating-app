@@ -8,6 +8,15 @@ import Home from './Home.js'
 import {BrowserRouter, Route} from "react-router-dom";
 import Header from './Components/ReusableComponents/Header';
 
+// These are imports for login routes: Already have login and sign up pages
+
+// import LoginPage from './containers/LoginPage.jsx';
+// import LogoutFunction from './containers/LogoutFunction.jsx';
+// import SignUpPage from './containers/SignUpPage.jsx';
+// import DashboardPage from './containers/DashboardPage.jsx';
+// import Auth from './modules/Auth';
+
+
 export default class App extends Component {
   constructor(props) {
     super(props)
