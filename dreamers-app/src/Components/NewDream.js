@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import '../css/Log.css'
-
-export default class Log extends Component {
+import DatePicker from 'material-ui/DatePicker';
+import {FloatingActionButton,Checkbox, TableRow} from 'material-ui';
+const styles = {
+  block: {
+    maxWidth: 250,
+  },
+  checkbox: {
+    marginBottom: 5,
+  },
+};
+export default class NewDream extends Component {
 
   clickHandler = () => {
     // first thing I did -> console.log("click");
@@ -36,7 +44,8 @@ export default class Log extends Component {
 
   render (){
     return (
-      <div>
+      <div className='newDream'>
+        <DatePicker mode="Portrait"/>
         <TextField
           id="title"
           hintText="Dream Title"
@@ -50,9 +59,23 @@ export default class Log extends Component {
           rows={2}
           fullWidth={true}
         /><br />
-      <FloatingActionButton onClick={this.clickHandler} className="fab" >
-          <ContentAdd />
-        </FloatingActionButton>
+      <div style={styles.block}>
+       <Checkbox
+         label="Lucid"
+         style={styles.checkbox}
+       /><Checkbox
+         label="Nightmare"
+         style={styles.checkbox}
+       /><Checkbox
+         label="Epic"
+         style={styles.checkbox}
+       /><Checkbox
+         label="Recurring"
+         style={styles.checkbox}
+       /><Checkbox
+         label="Adult"
+         style={styles.checkbox}
+       /></div>
       </div>
     );
   }
