@@ -4,7 +4,6 @@ import Dreams from './Components/Dreams.js';
 import Settings from './Components/Settings.js'
 import Log from './Components/Log.js';
 import Home from './Home.js'
-import HomeScreen from './Components/HomeScreen.js';
 
 import {BrowserRouter, Route} from "react-router-dom";
 import Header from './Components/ReusableComponents/Header';
@@ -37,7 +36,7 @@ export default class App extends Component {
               <Route
                 path="/"
                 exact
-                component={HomeScreen}
+                component={Home}
                 setTitle={this.setTitle.bind(this)}
               />
               <Route path="/Login" component={Home} setTitle={this.setTitle}/>

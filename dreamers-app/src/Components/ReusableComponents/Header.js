@@ -20,11 +20,6 @@ import { AppBar , Avatar, Drawer, MenuItem }  from 'material-ui';
            <Avatar
              size={100}
            />
-           <MenuItem
-             primaryText="HomeScreen"
-             containerElement={<Link to="/" />}
-             onTouchTap={() => this.props.update("Login")}
-           />
              <MenuItem
                primaryText="Login/SignUp"
                containerElement={<Link to="/Login" />}
