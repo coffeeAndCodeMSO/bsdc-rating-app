@@ -14,13 +14,6 @@ const styles = {
 
 const Settings = () => (
   <div style={styles.root}>
-      <List>
-        <Subheader>General</Subheader>
-        <ListItem
-          primaryText="Profile photo"
-          secondaryText="Change your profile photo"
-        />
-      </List>
       <Divider />
       <List>
         <ListItem

@@ -18,18 +18,28 @@ const myMuiTheme = getMuiTheme ({
     accent1Color: pinkA200,
     accent2Color: pinkA400,
     accent3Color: pinkA100,
-    textColor:'#000000',
+    textColor:fullWhite,
     secondaryTextColor: fullWhite,
     alternateTextColor: fullWhite,
 
   },
+  appBar: {
+  color: '#1a256b',
+  textColor: fullWhite,
+  },
+  avatar: {
+  color: '#e7831b',
+  backgroundColor: '#5b12f5',
+},
   drawer:{
-    color:"#555555",
+  color:'#1a256b',
   },
+
   raisedButton:{
-  color:"#555555",
-  textColor:fullWhite
+  color:'#1a256b',
+  textColor:fullWhite,
   },
+
   textField:{
   textColor: '#000000',
   hintColor: '#000000',
@@ -40,9 +50,24 @@ const myMuiTheme = getMuiTheme ({
   backgroundColor: 'transparent',
   borderColor: '#000000',
 },
+
   floatingActionButton:{
-  color:"#555555",
-  }
+  color:'#1a256b',
+},
+
+  menuItem: {
+  textColor:fullWhite,
+  dataHeight: 32,
+  height: 48,
+  hoverColor:'#263283',
+  selectedTextColor: fullWhite,
+  rightIconDesktopFill: grey600,
+},
+toggle: {
+  thumbOnColor: '#ffffff',
+  thumbOffColor: '#000000',
+},
+
 });
 
 export default myMuiTheme;
