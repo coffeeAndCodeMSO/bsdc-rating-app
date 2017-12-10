@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 mongoose.Promise = require('bluebird');
 
-const User = require('./src/models/users');
+const User = require('./src/models/user');
 const Entry = require('./src/models/entry');
 
 app.use(bodyParser.urlencoded({ extended: true }));
