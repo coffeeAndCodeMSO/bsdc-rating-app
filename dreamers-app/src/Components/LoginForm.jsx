@@ -13,7 +13,6 @@ const LoginForm = ({
   user,
   toggleAuthenticateStatus
 }) => (
-  <Card className="container">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading">Login</h2>
 
@@ -47,7 +46,6 @@ const LoginForm = ({
 
       <CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
     </form>
-  </Card>
 );
 
 LoginForm.propTypes = {

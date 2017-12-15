@@ -18,7 +18,6 @@ import Auth from './modules/Auth';
 import Dreams from './Components/Dreams.js';
 import Settings from './Components/Settings.js'
 import NewDream from './Components/NewDream.js';
-import Home from './Home.js'
 import Header from './Components/ReusableComponents/Header';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -103,7 +102,7 @@ export default class App extends Component {
           <Route
             path="/"
             exact
-            component={Home}
+            component={HomePage}
             setTitle={this.setTitle.bind(this)}
           />
 
@@ -112,7 +111,6 @@ export default class App extends Component {
           <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
           <LoggedOutRoute path="/signup" component={SignUpPage}/>
           <Route path="/logout" component={LogoutFunction}/>
-          <Route path="/Login" component={Home} setTitle={this.setTitle}/>
           <Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
           <Route path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
           <Route path="/Settings" component={Settings} setTitle={this.setTitle}/>

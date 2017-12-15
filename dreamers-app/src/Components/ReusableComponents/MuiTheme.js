@@ -1,31 +1,24 @@
 import React from 'react';
-
-import {
-  cyan700,
-  grey600,
-  pinkA100, pinkA200, pinkA400,
-  fullWhite,transparent,
-} from '../../style/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const myMuiTheme = getMuiTheme ({
 
   fontFamily: 'Roboto, sans-serif',
   borderRadius: 2,
   palette: {
-    primary1Color: cyan700,
-    primary2Color: cyan700,
-    primary3Color: grey600,
-    accent1Color: pinkA200,
-    accent2Color: pinkA400,
-    accent3Color: pinkA100,
-    textColor:fullWhite,
-    secondaryTextColor: fullWhite,
-    alternateTextColor: fullWhite,
+    primary1Color: '#00b8d4',
+    primary2Color: '#00b8d4',
+    primary3Color: '#757575',
+    accent1Color: '#ff4081',
+    accent2Color: '#f50057',
+    accent3Color: '#ff80ab',
+    textColor:'#ffffff',
+    secondaryTextColor: '#ffffff',
+    alternateTextColor: '#ffffff',
 
   },
   appBar: {
   color: '#1a256b',
-  textColor: fullWhite,
+  textColor: '#ffffff',
   },
   avatar: {
   color: '#e7831b',
@@ -37,7 +30,7 @@ const myMuiTheme = getMuiTheme ({
 
   raisedButton:{
   color:'#1a256b',
-  textColor:fullWhite,
+  textColor:'#ffffff',
   },
 
   textField:{
@@ -47,7 +40,6 @@ const myMuiTheme = getMuiTheme ({
   disabledTextColor: '#000000',
   errorColor: '#ff0000',
   focusColor: '#000000',
-  backgroundColor: 'transparent',
   borderColor: '#000000',
 },
 
@@ -56,12 +48,12 @@ const myMuiTheme = getMuiTheme ({
 },
 
   menuItem: {
-  textColor:fullWhite,
+  textColor:'#ffffff',
   dataHeight: 32,
   height: 48,
   hoverColor:'#263283',
-  selectedTextColor: fullWhite,
-  rightIconDesktopFill: grey600,
+  selectedTextColor: '#ffffff',
+  rightIconDesktopFill: '#757575',
 },
 toggle: {
   thumbOnColor: '#ffffff',
