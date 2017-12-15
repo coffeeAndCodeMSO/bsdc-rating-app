@@ -14,6 +14,7 @@ router.route('/users')
   .get((req, res) => {
     User.find((err, users) => {
       if (err)
+        user.forEach()
         console.log(users)
       res.json(users);
     });
