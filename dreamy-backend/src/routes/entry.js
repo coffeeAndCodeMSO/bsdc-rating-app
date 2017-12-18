@@ -20,12 +20,24 @@ router.route('/journals')
       res.json(entry);
     });
   })
+
+//get all journals for a userid
+router.route('/journals/:userid')
+  .get((req, res) => {
+    User.findById(req.params.userid, (err, user) => {
+      if (err)
+        res.send(err);
+      console.log(user.journalEntries);
+      res.json(user.journalEntries);
+    })
+  })
 //get journal by journal id//
 router.route('/journal/:journalid')
   .get((req, res) => {
     Entry.findById(req.params.journalid, (err, journal) => {
       if (err)
         res.send(err);
+        console.log(req.params.journalid);
       res.json(journal)
     });
   })
@@ -44,7 +56,7 @@ router.route('/journal/delete/:journalid')
     });
   })
 // create new journal entry with user id//
-router.route('/journals/:userid')
+router.route('/createjournal/:userid')
   .post((req, res) => {
     User.findById(req.params.userid, (err, user) => {
       if (err)
