@@ -30,8 +30,11 @@ class DashboardPage extends React.Component {
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         this.setState({
-          secretData: xhr.response.message,
-          user: xhr.response.user
+          /**********************************
+        TODO =>  Do we need the part that is commented out?
+          ***********************************/
+        //  secretData: xhr.response.message,
+        //  user: xhr.response.user
         });
       }
     });

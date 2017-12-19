@@ -1,8 +1,6 @@
 import React from 'react';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardActions, CardTitle, CardText, FlatButton, FloatingActionButton} from 'material-ui';
 
 
 export default class Dreams extends React.Component {

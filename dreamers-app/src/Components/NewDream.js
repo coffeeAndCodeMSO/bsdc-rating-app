@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import '../css/Log.css'
-import DatePicker from 'material-ui/DatePicker';
-import {FloatingActionButton,Checkbox, TableRow} from 'material-ui';
+import '../css/App.css'
+import {Checkbox, DatePicker, TextField} from 'material-ui';
+
 const styles = {
   block: {
     maxWidth: 250,
@@ -45,7 +43,7 @@ export default class NewDream extends Component {
   render (){
     return (
       <div className='newDream'>
-        <DatePicker mode="Portrait"/>
+        <DatePicker mode="portrait"/>
         <TextField
           id="title"
           hintText="Dream Title"
