@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { CardText, RaisedButton, TextField } from 'material-ui';
-
+import '../css/App.css'
 
 
 const SignUpForm = ({
@@ -11,10 +11,10 @@ const SignUpForm = ({
   errors,
   user,
 }) => (
+      <div className="Signup">
     <form action="/" onSubmit={onSubmit}>
 
       {errors.summary && <p className="error-message">{errors.summary}</p>}
-
       <div className="field-line">
         <TextField
           floatingLabelText="Name"
@@ -52,6 +52,7 @@ const SignUpForm = ({
 
       <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
     </form>
+  </div>
 );
 
 SignUpForm.propTypes = {

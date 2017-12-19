@@ -1,9 +1,5 @@
 import React from 'react';
-import {List, ListItem} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
-import Checkbox from 'material-ui/Checkbox';
-import Toggle from 'material-ui/Toggle';
+import {List, ListItem, Toggle, Checkbox, Divider, Subheader} from 'material-ui';
 
 const styles = {
   root: {

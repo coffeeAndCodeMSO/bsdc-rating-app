@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-// import routes from './routes.js';
 
 import {
   BrowserRouter,
   Route,
   Link,
   Redirect,
-  withRouter
 } from 'react-router-dom'
 
 import HomePage from './Components/HomePage.js';

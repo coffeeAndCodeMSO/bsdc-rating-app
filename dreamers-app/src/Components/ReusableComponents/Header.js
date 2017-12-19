@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AppBar , Avatar, Drawer, MenuItem }  from 'material-ui';
-import Divider from 'material-ui/Divider';
+import { AppBar , Avatar, Drawer, MenuItem, Divider}  from 'material-ui';
+var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 
  export default class Header extends React.Component {
    render(){

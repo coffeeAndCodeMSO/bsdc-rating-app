@@ -1,4 +1,3 @@
-import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const myMuiTheme = getMuiTheme ({
 
@@ -11,7 +10,7 @@ const myMuiTheme = getMuiTheme ({
     accent1Color: '#ff4081',
     accent2Color: '#f50057',
     accent3Color: '#ff80ab',
-    textColor:'#ffffff',
+    textColor: '#005eff',
     secondaryTextColor: '#ffffff',
     alternateTextColor: '#ffffff',
 
