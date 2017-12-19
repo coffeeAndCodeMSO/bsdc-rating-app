@@ -28,8 +28,7 @@ class Login extends Component {
       "password": this.state.password
     }
 
-    grad.gradientUniforms.color1 = {value: [1.0, 1.0, 1.0, 1.0]};
-
+    grad.generateColors();
 
     axios.post(apiBaseUrl+'login',payload)
       .then(function(response){
