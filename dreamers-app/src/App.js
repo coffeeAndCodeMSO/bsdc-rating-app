@@ -81,37 +81,21 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          {this.state.authenticated ? (
-            <div className="top-bar-right">
-              <Link to="/dashboard">Dashboard</Link>
-              <Link to="/logout">Log out</Link>
-            </div>
-          ) : (
-            <div className="top-bar-right">
-              <Link to="/login">Log in</Link>
-              <Link to="/signup">Sign up</Link>
-            </div>
-          )}
-          <Header title={this.state.title}
+          <Header
+                  authenticated={this.state.authenticated}
+                  title={this.state.title}
                   open={this.state.open}
                   setValue={this.toggleDrawer}
-                  update={this.update}
-          />
-          <Route
-            path="/"
-            exact
-            component={HomePage}
-            setTitle={this.setTitle.bind(this)}
-          />
+                  update={this.update}/>
 
-          <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+          <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} setTitle={this.setTitle.bind(this)}/>
           <PrivateRoute path="/dashboard" component={DashboardPage}/>
           <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
           <LoggedOutRoute path="/signup" component={SignUpPage}/>
           <Route path="/logout" component={LogoutFunction}/>
-          <Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
-          <Route path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
-          <Route path="/Settings" component={Settings} setTitle={this.setTitle}/>
+          <PrivateRoute path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
+          <PrivateRoute path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
+          <PrivateRoute path="/Settings" component={Settings} setTitle={this.setTitle}/>
           </div>
       </BrowserRouter>
     )

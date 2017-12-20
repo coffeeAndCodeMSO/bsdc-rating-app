@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import {Card, CardActions, CardTitle, CardText, FlatButton, FloatingActionButton} from 'material-ui';
-
+import { Link } from 'react-router-dom'
 
 export default class Dreams extends React.Component {
 
@@ -17,9 +17,11 @@ export default class Dreams extends React.Component {
           <FlatButton label="button" />
         </CardActions>
       </Card>
+      <Link to="/NewDream">
       <FloatingActionButton className="fab">
         <ContentAdd />
       </FloatingActionButton>
+    </Link>
     </div>
     );
   }

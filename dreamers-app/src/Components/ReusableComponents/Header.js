@@ -24,26 +24,42 @@ injectTapEventPlugin();
              style={{margin:5}}
            />
          <Divider/>
-             <MenuItem
-               primaryText="Login/SignUp"
-               containerElement={<Link to="/Login" />}
-               onTouchTap={() => this.props.update("Login")}
-             />
-             <MenuItem
-               primaryText="My Dreams"
-               containerElement={<Link to="/Dreams" />}
-               onTouchTap={() => this.props.update("Dreams")}
-             />
-             <MenuItem
-               primaryText="New Dream"
-               containerElement={<Link to="/NewDream" />}
-               onTouchTap={() => this.props.update("New Dream")}
-             />
-             <MenuItem
-               primaryText="Settings"
-               containerElement={<Link to="/Settings" />}
-               onTouchTap={() => this.props.update("Settings")}
-             />
+             {this.props.authenticated ? (
+               <div>
+               <MenuItem
+                 primaryText="My Dreams"
+                 containerElement={<Link to="/Dreams" />}
+                 onTouchTap={() => this.props.update("My Dreams")}
+               />
+               <MenuItem
+                 primaryText="New Dream"
+                 containerElement={<Link to="/NewDream" />}
+                 onTouchTap={() => this.props.update("New Dream")}
+               />
+               <MenuItem
+                 primaryText="Settings"
+                 containerElement={<Link to="/Settings" />}
+                 onTouchTap={() => this.props.update("Settings")}
+               />
+               <MenuItem
+                 primaryText="LogOut"
+                 containerElement={<Link to="/logout" />}
+                 onTouchTap={() => this.props.update("Logout")}
+               /></div>
+             ) : (
+               <div>
+               <MenuItem
+                 primaryText="Login"
+                 containerElement={<Link to="/Login" />}
+                 onTouchTap={() => this.props.update("Login")}
+               />
+              <MenuItem
+                    primaryText="SignUp"
+                    containerElement={<Link to="/signup" />}
+                    onTouchTap={() => this.props.update("SignUp")}
+               />
+             </div>
+             )}
            </Drawer>
 
            <div style={{ textAlign: 'center' }}>
