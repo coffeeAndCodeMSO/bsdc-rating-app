@@ -74,14 +74,17 @@ class Gradient {
     this.renderer.render(this.scene, this.camera);
   };
   generateColors() {
-    var hue_1 = Math.random(0.8 - 0.45) + 0.45;
-    //var hue_2 = Math.random(0.8 - 0.45) + 0.45;
+    var hue_1 = (Math.random() * 0.3) + 0.5;
+    var hue_2 = (Math.random() * 0.3) + 0.5;
+    while (Math.abs(hue_1 - hue_2) < 0.15) {
+      hue_2 = (Math.random() * 0.3) + 0.5;
+    }
     var c1 = new THREE.Color().setHSL(hue_1, 1.0, 0.5);
-    //var c2 = new THREE.Color().setHSL(hue_2, 1.0, 0.5);
+    var c2 = new THREE.Color().setHSL(hue_2, 1.0, 0.5);
     this.gradientUniforms.color1 = {value: [c1.toArray()[0],c1.toArray()[1],c1.toArray()[2],1.0]};
-    //this.gradientUniforms.color2 = {value: [c2.toArray()[0],c2.toArray()[1],c2.toArray()[2],1.0]};
+    this.gradientUniforms.color2 = {value: [c2.toArray()[0],c2.toArray()[1],c2.toArray()[2],1.0]};
     console.log(c1.getHSL());
-    //console.log(c2.getHSL());
+    console.log(c2.getHSL());
   }
 }
 
