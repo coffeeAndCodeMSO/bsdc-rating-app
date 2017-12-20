@@ -22,8 +22,8 @@ var userSchema = new Schema({
   interests: String,
   bio: String,
   journalEntries: [{
-    type: Schema.ObjectId,
-    ref: entrySchema
+    type: Schema.Types.ObjectId,
+    ref: 'Entry'
   }],
   bedTime: Date,
   wakeTime: Date
