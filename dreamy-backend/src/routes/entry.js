@@ -45,6 +45,14 @@ router.route('/journal/delete/:journalid')
   })
 // create new journal entry with user id//
 router.route('/journals/:userid')
+  .get((req, res) => {
+    User.findById(req.params.userid).populate('journalEntries').exec((err, user)=>{
+      if(err)
+      res.send(err);
+      res.json(user.journalEntries)
+
+    })
+  })
   .post((req, res) => {
     User.findById(req.params.userid, (err, user) => {
       if (err)
