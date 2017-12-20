@@ -6,10 +6,7 @@ class HomePage extends React.Component {
 
   componentDidMount() {
     // update authenticated state on logout
-    /**********************************
-   TODO =>  Do we need the part that is commented out?
-    **************************************/
-  // this.props.toggleAuthenticateStatus()
+   this.props.toggleAuthenticateStatus()
   }
 
   render() {

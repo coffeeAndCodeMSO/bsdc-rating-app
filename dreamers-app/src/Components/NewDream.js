@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/App.css'
-import {Checkbox, DatePicker, TextField} from 'material-ui';
+import {Checkbox, DatePicker, TextField, RaisedButton} from 'material-ui';
 
 const styles = {
   block: {
@@ -39,11 +39,12 @@ export default class NewDream extends Component {
     // });
     //  as well as bluebird to get rid of that promise error.
   }
-
+  onSubmit
   render (){
     return (
+      <form action="/Dreams" onSubmit={() =>{console.log("sumbity")}}>
       <div className='newDream'>
-        <DatePicker mode="portrait"/>
+        <DatePicker mode="portrait" hintText="Date"/>
         <TextField
           id="title"
           hintText="Dream Title"
@@ -74,7 +75,11 @@ export default class NewDream extends Component {
          label="Adult"
          style={styles.checkbox}
        /></div>
+     <div className="saveButton">
+         <RaisedButton type="submit" label="Save"/>
+       </div>
       </div>
+    </form>
     );
   }
 }

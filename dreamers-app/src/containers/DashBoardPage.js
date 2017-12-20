@@ -27,14 +27,11 @@ class DashboardPage extends React.Component {
     // set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
-    xhr.addEventListener('load', () => {
+    xhr.addEventListener('onload', () => {
       if (xhr.status === 200) {
         this.setState({
-          /**********************************
-        TODO =>  Do we need the part that is commented out?
-          ***********************************/
-        //  secretData: xhr.response.message,
-        //  user: xhr.response.user
+         secretData: xhr.response.message,
+         user: xhr.response.user
         });
       }
     });

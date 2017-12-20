@@ -10,7 +10,7 @@ const myMuiTheme = getMuiTheme ({
     accent1Color: '#ff4081',
     accent2Color: '#f50057',
     accent3Color: '#ff80ab',
-    textColor: '#005eff',
+    textColor: '#000000',
     secondaryTextColor: '#ffffff',
     alternateTextColor: '#ffffff',
 
