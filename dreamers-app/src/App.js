@@ -4,9 +4,12 @@ import Dreams from './Components/Dreams.js';
 import Settings from './Components/Settings.js'
 import NewDream from './Components/NewDream.js';
 import Home from './Home.js'
+import { Gradient } from './webgl/gradient';
 
 import {BrowserRouter, Route} from "react-router-dom";
 import Header from './Components/ReusableComponents/Header';
+
+var grad;
 
 export default class App extends Component {
   constructor(props) {
@@ -16,7 +19,10 @@ export default class App extends Component {
       title: ""
     }
   }
-
+  componentDidMount(){
+    grad = new Gradient();
+    grad.animate();
+  }
   toggleDrawer = () => this.setState({ open: !this.state.open })
   setTitle = (title) => this.setState({title: title })
   update = (title) => this.setState({

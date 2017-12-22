@@ -4,9 +4,6 @@ import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import UploadScreen from './UploadScreen';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Gradient } from './webgl/gradient';
-
-var grad;
 
 class Login extends Component {
   constructor(props){
@@ -16,10 +13,7 @@ class Login extends Component {
       password:''
     }
   }
-  componentDidMount(){
-    grad = new Gradient();
-    grad.animate();
-  }
+  
   handleClick(event){
     var apiBaseUrl ="http://localhost:5000/api";
     var self = this;
