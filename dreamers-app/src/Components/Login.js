@@ -13,7 +13,7 @@ class Login extends Component {
       password:''
     }
   }
-  
+
   handleClick(event){
     var apiBaseUrl ="http://localhost:5000/api";
     var self = this;
@@ -22,7 +22,12 @@ class Login extends Component {
       "password": this.state.password
     }
 
-    grad.generateColors();
+    var colors = {
+      "color1": 'red',
+      "color2": 'blue'
+    }
+
+    this.props.onColorChange(colors);
 
     axios.post(apiBaseUrl+'login',payload)
       .then(function(response){
