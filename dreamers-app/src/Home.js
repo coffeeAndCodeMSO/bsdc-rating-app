@@ -13,9 +13,10 @@ class Home extends Component {
       uploadScreen:[]
     }
   }
+
   componentWillMount(){
     var loginPage =[];
-    loginPage.push(<LoginScreen parentContext={this}/>);
+    loginPage.push(<LoginScreen parentContext={this} changeColors={this.props.changeColors}/>);
     this.setState({
                   loginPage:loginPage
                     })

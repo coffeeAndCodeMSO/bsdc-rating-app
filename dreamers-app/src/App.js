@@ -16,19 +16,29 @@ export default class App extends Component {
     super(props)
     this.state = {
       open: false,
-      title: ""
+      title: "",
+      colors: {
+        color1: '',
+        color2: ''
+      }
     }
   }
+
+  changeColors = (colors) => {
+    grad.generateColors(colors);
+  }
+
   componentDidMount(){
     grad = new Gradient();
     grad.animate();
   }
+
   toggleDrawer = () => this.setState({ open: !this.state.open })
   setTitle = (title) => this.setState({title: title })
   update = (title) => this.setState({
     open: !this.state.open,
     title: title
-  })
+  });
 
   render() {
     return (
@@ -42,10 +52,10 @@ export default class App extends Component {
               <Route
                 path="/"
                 exact
-                component={Home}
+                render={() => (<Home changeColors={this.changeColors} />)}
                 setTitle={this.setTitle.bind(this)}
               />
-              <Route path="/Login" component={Home} setTitle={this.setTitle}/>
+              <Route path="/Login" render={() => (<Home changeColors={this.changeColors} />)} setTitle={this.setTitle}/>
               <Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
               <Route path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
               <Route path="/Settings" component={Settings} setTitle={this.setTitle}/>
@@ -54,3 +64,8 @@ export default class App extends Component {
     )
   }
 }
+
+
+// <Route exact path='/' render={(props) => (
+//   <PageContent {...props} pass_to_page_content='hi' />
+// )}/>

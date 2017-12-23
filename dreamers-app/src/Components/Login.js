@@ -15,6 +15,29 @@ class Login extends Component {
     }
   }
 
+  /*
+    Here is a new method for changing colors. If you want to trigger different
+    colors with different buttons, you will want to create new methods to handle
+    that.
+  */
+  /*
+  secondTestColors(){
+    var self = this;
+    self.props.changeColors();
+  }
+
+  /*
+    Now, when you are adding your components, you need to trigger your new
+    function somehow. When you go to render your component, call it in your
+    onClick:
+  */
+  /*
+    <RaisedButton
+      label="SECOND TEST"
+      onClick={() => this.secondTestColors()}
+      />
+  */
+
   handleClick(event){
     var apiBaseUrl ="http://localhost:5000/api";
     var self = this;
@@ -22,11 +45,11 @@ class Login extends Component {
       "email":this.state.username,
       "password": this.state.password
     }
-
-    this.state.colors = {
-      color1: "green",
-      color2: "yellow"
-    }
+    
+    self.props.changeColors({
+      color1: 'blue',
+      color2: 'silver'
+    });
 
     axios.post(apiBaseUrl+'login',payload)
       .then(function(response){
