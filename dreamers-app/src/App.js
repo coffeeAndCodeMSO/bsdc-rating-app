@@ -24,13 +24,8 @@ export default class App extends Component {
     }
   }
 
-  onColorChange(event){
-    console.log('hey there');
-    this.setState({ colors: {
-      color1: 'red',
-      color2: 'blue'
-    }});
-    grad.generateColors(this.state.colors);
+  changeColors = (colors) => {
+    grad.generateColors(colors);
   }
 
   componentDidMount(){
@@ -57,10 +52,10 @@ export default class App extends Component {
               <Route
                 path="/"
                 exact
-                component={Home}
+                render={() => (<Home changeColors={this.changeColors} />)}
                 setTitle={this.setTitle.bind(this)}
               />
-              <Route path="/Login" component={Home} setTitle={this.setTitle} onColorChange={this.onColorChange.bind(this)}/>
+              <Route path="/Login" render={() => (<Home changeColors={this.changeColors} />)} setTitle={this.setTitle}/>
               <Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
               <Route path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
               <Route path="/Settings" component={Settings} setTitle={this.setTitle}/>
@@ -69,3 +64,8 @@ export default class App extends Component {
     )
   }
 }
+
+
+// <Route exact path='/' render={(props) => (
+//   <PageContent {...props} pass_to_page_content='hi' />
+// )}/>

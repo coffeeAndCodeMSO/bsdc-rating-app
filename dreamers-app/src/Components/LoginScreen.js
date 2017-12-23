@@ -19,19 +19,19 @@ class LoginScreen extends Component {
 
   componentWillMount(){
     const loginscreen=[];
-    loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext} onColorChange={()=>this.props.onColorChange}/>);
+    loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext} changeColors={this.props.changeColors}/>);
     const loginmessage = "Not signed up yet, Signup Now";
     this.setState({
         loginscreen:loginscreen,
         loginmessage:loginmessage
     })
   }
-  
+
   handleClick(event){
       var loginmessage;
       if(this.state.isLogin){
         var loginscreen=[];
-        loginscreen.push(<Register parentContext={this} onColorChange={()=>this.props.onColorChange}/>);
+        loginscreen.push(<Register parentContext={this} />);
         loginmessage = "Already registered.Go to Login";
         this.setState({
                        loginscreen:loginscreen,
@@ -45,7 +45,7 @@ class LoginScreen extends Component {
         however it is needed to use the login buttons correctly.
         */
         var loginscreen=[];
-        loginscreen.push(<Login parentContext={this} onColorChange={this.onColorChange.bind(this)}/>);
+        loginscreen.push(<Login parentContext={this} changeColors={this.props.changeColors}/>);
         loginmessage = "Not Registered yet.Go to registration";
         this.setState({
                        loginscreen:loginscreen,

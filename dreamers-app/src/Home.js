@@ -16,7 +16,7 @@ class Home extends Component {
 
   componentWillMount(){
     var loginPage =[];
-    loginPage.push(<LoginScreen parentContext={this} onColorChange={()=>this.props.onColorChange}/>);
+    loginPage.push(<LoginScreen parentContext={this} changeColors={this.props.changeColors}/>);
     this.setState({
                   loginPage:loginPage
                     })
