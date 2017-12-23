@@ -10,10 +10,11 @@ class Login extends Component {
     super(props);
     this.state={
       username:'',
-      password:''
+      password:'',
+      colors:''
     }
   }
-  
+
   handleClick(event){
     var apiBaseUrl ="http://localhost:5000/api";
     var self = this;
@@ -22,7 +23,10 @@ class Login extends Component {
       "password": this.state.password
     }
 
-    grad.generateColors();
+    this.state.colors = {
+      color1: "green",
+      color2: "yellow"
+    }
 
     axios.post(apiBaseUrl+'login',payload)
       .then(function(response){
