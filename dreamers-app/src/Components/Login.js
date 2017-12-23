@@ -10,7 +10,8 @@ class Login extends Component {
     super(props);
     this.state={
       username:'',
-      password:''
+      password:'',
+      colors:''
     }
   }
 
@@ -44,7 +45,7 @@ class Login extends Component {
       "email":this.state.username,
       "password": this.state.password
     }
-
+    
     self.props.changeColors({
       color1: 'blue',
       color2: 'silver'
