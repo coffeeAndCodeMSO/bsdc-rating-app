@@ -10,7 +10,7 @@ const myMuiTheme = getMuiTheme ({
     accent1Color: '#ff4081',
     accent2Color: '#f50057',
     accent3Color: '#ff80ab',
-    textColor: '#000000',
+    textColor: '#ffffff',
     secondaryTextColor: '#ffffff',
     alternateTextColor: '#ffffff',
 
@@ -33,13 +33,13 @@ const myMuiTheme = getMuiTheme ({
   },
 
   textField:{
-  textColor: '#000000',
-  hintColor: '#000000',
-  floatingLabelColor: '#000000',
-  disabledTextColor: '#000000',
+  textColor: '#ffffff',
+  hintColor: '#ffffff',
+  floatingLabelColor: '#ffffff',
+  disabledTextColor: '#ffffff',
   errorColor: '#ff0000',
-  focusColor: '#000000',
-  borderColor: '#000000',
+  focusColor: '#ffffff',
+  borderColor: '#ffffff',
 },
 
   floatingActionButton:{
@@ -56,7 +56,7 @@ const myMuiTheme = getMuiTheme ({
 },
 toggle: {
   thumbOnColor: '#ffffff',
-  thumbOffColor: '#000000',
+  thumbOffColor: '#ffffff',
 },
 
 });
