@@ -3,35 +3,37 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import {Card, CardActions, CardTitle, CardText, FlatButton, FloatingActionButton} from 'material-ui';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import Auth from '../modules/Auth';
 
 export default class Dreams extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      dreams: []
+      journals: []
     }
   }
 
-
   componentDidMount() {
-    axios.get('http://localhost:5000/api/journals/5a374f1b369fb113123cdc4d')
-         .then((res) => {
-           console.log('res', res)
-           console.log('state dreams', this.state.dreams)
-           this.setState({
-             dreams: res.data
-           })
-         })
+    axios.get('http://localhost:5000/api/journals/userToken', {
+      headers:{
+        authorization: `bearer ${Auth.getToken()}`
+      }
+    })
+    .then((res) => {
+      this.setState({
+        journals: res.data
+      })
+    })
   }
 
   render() {
     return (
       <div>
-        {this.state.dreams.map((dream) => {
+        {this.state.journals.map((journal) => {
           return <Card>
-          <CardTitle title={dream.entryTitle} subtitle={dream.dreamDate}/>
+          <CardTitle title={journal.entryTitle} subtitle={journal.dreamDate}/>
             <CardText>
-            {dream.description}
+            {journal.description}
             </CardText>
           </Card>
         }
