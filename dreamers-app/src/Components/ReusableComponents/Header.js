@@ -53,11 +53,11 @@ injectTapEventPlugin();
                  containerElement={<Link to="/Login" />}
                  onTouchTap={() => this.props.update("Login")}
                />
-              <MenuItem
-                    primaryText="SignUp"
-                    containerElement={<Link to="/signup" />}
-                    onTouchTap={() => this.props.update("SignUp")}
-               />
+               <MenuItem
+                  primaryText="SignUp"
+                  containerElement={<Link to="/signup" />}
+                  onTouchTap={() => this.props.update("SignUp")}
+                />
              </div>
              )}
            </Drawer>
