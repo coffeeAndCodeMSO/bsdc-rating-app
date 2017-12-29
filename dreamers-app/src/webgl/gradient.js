@@ -73,7 +73,12 @@ class Gradient {
 
     this.renderer.render(this.scene, this.camera);
   };
-  generateColors() {
+  generateColors(colors) {
+    console.log(colors);
+
+    //need to parse through the colors object, allowing for hex, css color names,
+    //and a 'random' setting.
+
     var hue_1 = (Math.random() * 0.3) + 0.5;
     var hue_2 = (Math.random() * 0.3) + 0.5;
     while (Math.abs(hue_1 - hue_2) < 0.15) {

@@ -23,10 +23,12 @@ class Login extends Component {
       "password": this.state.password
     }
 
-    this.state.colors = {
-      color1: "green",
-      color2: "yellow"
+    var colors = {
+      "color1": 'red',
+      "color2": 'blue'
     }
+
+    this.props.onColorChange(colors);
 
     axios.post(apiBaseUrl+'login',payload)
       .then(function(response){
