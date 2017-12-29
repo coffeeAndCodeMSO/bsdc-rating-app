@@ -9,6 +9,7 @@ const styles = {
   },
   checkbox: {
     marginBottom: 5,
+    margin: 10,
   },
 };
 export default class NewDream extends Component {
@@ -22,33 +23,6 @@ export default class NewDream extends Component {
     }
   };
 
-  clickHandler = () => {
-    // first thing I did -> console.log("click");
-    // then I gave the inputs some ids so I could grab them off the page
-    // then -> console.log(document.getElementById("title").value);
-    // then here ->  https://www.npmjs.com/package/axios
-    // to get this ->
-    // the route to add by user is missing, but that's ok ->
-    // axios.post('http://localhost:5000/api/journals', {
-    //   entryTitle: document.getElementById("title").value,
-    //   description: document.getElementById("body").value
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    //   document.getElementById("title").value = '';
-    //   document.getElementById("body").value = '';
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-    // got a cors error, so I added this to the backend server ->
-    // app.use(function(req, res, next) {
-    //   res.header("Access-Control-Allow-Origin", "*");
-    //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    //   next();
-    // });
-    //  as well as bluebird to get rid of that promise error.
-  }
   onChange = () => {
     this.setState({
       entryTitle: document.getElementById("title").value,
@@ -68,14 +42,20 @@ export default class NewDream extends Component {
     return (
       <form action="/Dreams" onSubmit={this.onSubmit}>
       <div className='newDream'>
-        <DatePicker mode="portrait" hintText="Date" id= "date" onChange = {this.onChange}/>
-        <TextField
+        <DatePicker
+          mode="portrait"
+          hintText="Date"
+          id= "date"
+          onChange = {this.onChange}
+          style={{margin:10}}
+          /><TextField
           id="title"
           hintText="Dream Title"
           floatingLabelText="Give your dream a title"
           onChange ={this.onChange}
+          style={{margin:10}}
         /><br />
-        <TextField
+      <TextField
           id="description"
           hintText="Dream Description"
           floatingLabelText="Give your dream a description"
@@ -83,6 +63,7 @@ export default class NewDream extends Component {
           multiLine={true}
           rows={2}
           fullWidth={true}
+          style={{margin:10}}
         /><br />
       <div style={styles.block}>
        <Checkbox
@@ -102,7 +83,11 @@ export default class NewDream extends Component {
          style={styles.checkbox}
        /></div>
      <div className="saveButton">
-         <RaisedButton type="submit" label="Save"/>
+         <RaisedButton
+           type="submit"
+           label="Save"
+           style={{margin:10}}
+           />
        </div>
       </div>
     </form>

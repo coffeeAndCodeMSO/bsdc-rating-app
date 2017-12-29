@@ -1,18 +1,16 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const myMuiTheme = getMuiTheme ({
 
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: 'Mukta Malar, sans-serif',
   borderRadius: 2,
   palette: {
-    primary1Color: '#00b8d4',
-    primary2Color: '#00b8d4',
+    primary1Color: '#1a256b',
+    primary2Color: '#1a256b',
     primary3Color: '#757575',
     accent1Color: '#ff4081',
     accent2Color: '#f50057',
     accent3Color: '#ff80ab',
-    textColor: '#ffffff',
-    secondaryTextColor: '#ffffff',
-    alternateTextColor: '#ffffff',
+
 
   },
   appBar: {
@@ -25,6 +23,7 @@ const myMuiTheme = getMuiTheme ({
 },
   drawer:{
   color:'#1a256b',
+  text:'#ffffff',
   },
 
   raisedButton:{
@@ -58,6 +57,22 @@ toggle: {
   thumbOnColor: '#ffffff',
   thumbOffColor: '#ffffff',
 },
+checkbox: {
+   boxColor: '#ffffff',
+   checkedColor: '#1a256b',
+   requiredColor:'#1a256b' ,
+   labelColor: '#ffffff',
+ },
+ datePicker: {
+  color: '#ffffff',
+  textColor: '#ffffff',
+  calendarTextColor: '#000000',
+  selectColor: '#1a256b',
+  selectTextColor:'#ffffff' ,
+  calendarYearBackgroundColor: '#1a256b',
+  headerColor: '#1a256b',
+},
+
 
 });
 
