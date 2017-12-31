@@ -5,6 +5,15 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import Auth from '../modules/Auth';
 
+const DreamsStyle = () => (
+  <Dreams
+    style= {{
+      color: 'transparent',
+      backgroundColor:'transparent',
+    }}
+  />
+);
+
 export default class Dreams extends React.Component {
   constructor(props){
     super(props);
