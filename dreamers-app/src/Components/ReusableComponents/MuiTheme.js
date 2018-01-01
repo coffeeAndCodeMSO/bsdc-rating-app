@@ -71,7 +71,11 @@ checkbox: {
   selectTextColor:'#ffffff' ,
   calendarYearBackgroundColor: '#1a256b',
   headerColor: '#1a256b',
+  backgroundColor: '#1a256b'
 },
+paper:{
+  zDepth:5,
+}
 
 
 });

@@ -32,3 +32,24 @@ Action Button
     left: auto;
     position: fixed;
 }
+/*
+Dream Title
+*/
+.dreamTitle {
+  color:#ffffff;
+  line-height:1.5;
+}
+/*
+Dream Date
+*/
+.dreamDate{
+  color:#ffffff;
+  line-height:.25;
+/*
+Dream description
+*/
+}
+.dreamDes{
+  color:#ffffff;
+  line-height:1.5;
+}

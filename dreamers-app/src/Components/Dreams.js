@@ -1,9 +1,10 @@
 import React from 'react';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {Card, CardActions, CardTitle, CardText, FlatButton, FloatingActionButton} from 'material-ui';
+import {Card, CardActions, CardTitle, CardText, FlatButton, FloatingActionButton,Paper} from 'material-ui';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import Auth from '../modules/Auth';
+import '../css/App.css'
 
 const DreamsStyle = () => (
   <Dreams
@@ -39,12 +40,14 @@ export default class Dreams extends React.Component {
     return (
       <div>
         {this.state.journals.map((journal) => {
-          return <Card>
-          <CardTitle title={journal.entryTitle} subtitle={journal.dreamDate}/>
-            <CardText>
-            {journal.description}
-            </CardText>
-          </Card>
+          return<Paper style={{backgroundColor:'rgba(26, 37, 107, 0.53)'}}>
+          <article>
+            <h4 className="dreamTitle">{journal.entryTitle}</h4>
+            <p className="dreamDate">{journal.dreamDate}</p>
+            <p className="dreamTime">{journal.dreamTime}</p>
+            <p className="dreamDes">{journal.description}</p>
+          </article>
+          </Paper>
         }
 
         )}
