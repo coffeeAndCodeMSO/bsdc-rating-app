@@ -19,8 +19,10 @@ class Gradient {
     this.renderer.setSize(this.width, this.height);
 
     this.gradientUniforms = {
-      color1: {value: [0.43, 0.74, 0.99, 1.0]},
-      color2: {value: [1.0, 0.15, 0.99, 1.0]},
+      color1: {value: [0.0980392, 0.0980392, 0.439216, 1.0]}, //midnight blue
+      color2: {value: [0, 0.807843, 0.819608, 1.0]}, //dark turquoise
+      // color1: {value: [0.43, 0.74, 0.99, 1.0]},
+      // color2: {value: [1.0, 0.15, 0.99, 1.0]},
       time: {value: this.clock.getElapsedTime()}
     }
 
