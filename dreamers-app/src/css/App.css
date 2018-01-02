@@ -38,6 +38,7 @@ Dream Title on New Dream page
 .dreamTitle {
   color:#ffffff;
   line-height:1.5;
+  margin: 5;
 }
 /*
 Dream Date on New Dream page
@@ -45,6 +46,7 @@ Dream Date on New Dream page
 .dreamDate{
   color:#ffffff;
   line-height:.25;
+  margin: 5;
 /*
 Dream description on New Dream page
 */
@@ -52,4 +54,5 @@ Dream description on New Dream page
 .dreamDes{
   color:#ffffff;
   line-height:1.5;
+  margin: 5;
 }
