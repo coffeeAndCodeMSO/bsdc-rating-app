@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import './css/App.css';
+
+import {
+  BrowserRouter,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom'
+
+import HomePage from './Components/HomePage.js';
+import LoginPage from './containers/LoginPage.js';
+import LogoutFunction from './containers/LogoutFunction.js';
+import SignUpPage from './containers/SignUpPage.js';
 import Dreams from './Components/Dreams.js';
 import Settings from './Components/Settings.js'
 import NewDream from './Components/NewDream.js';
@@ -8,6 +19,39 @@ import { Gradient } from './webgl/gradient';
 
 import {BrowserRouter, Route} from "react-router-dom";
 import Header from './Components/ReusableComponents/Header';
+import Auth from './modules/Auth';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Component {...props} {...rest} />
+    ) : (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
+const LoggedOutRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    ) : (
+      <Component {...props} {...rest} />
+    )
+  )}/>
+)
+
+const PropsRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    <Component {...props} {...rest} />
+  )}/>
+)
 
 var grad;
 
@@ -40,10 +84,45 @@ export default class App extends Component {
     title: title
   });
 
+  toggleAuthenticateStatus() {
+    // check authenticated status and toggle state based on that
+    this.setState({ authenticated: Auth.isUserAuthenticated() })
+  }
+
+  componentDidMount() {
+    // check if user is logged in on refresh
+    this.toggleAuthenticateStatus()
+  }
+
   render() {
     return (
       <BrowserRouter>
-          <div>
+
+
+
+        <div>
+          <Header
+                  authenticated={this.state.authenticated}
+                  title={this.state.title}
+                  open={this.state.open}
+                  setValue={this.toggleDrawer}
+                  update={this.update}/>
+
+          <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} setTitle={this.setTitle.bind(this)}/>
+          <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+          <LoggedOutRoute path="/signup" component={SignUpPage}/>
+          <Route path="/logout" component={LogoutFunction}/>
+          <PrivateRoute path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
+          <PrivateRoute path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
+          <PrivateRoute path="/Settings" component={Settings} setTitle={this.setTitle}/>
+
+          </div>
+      </BrowserRouter>
+    )
+  }
+}
+
+/*          <div>
               <Header title={this.state.title}
                       open={this.state.open}
                       setValue={this.toggleDrawer}
@@ -58,14 +137,7 @@ export default class App extends Component {
               <Route path="/Login" render={() => (<Home changeColors={this.changeColors} />)} setTitle={this.setTitle}/>
               <Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
               <Route path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
-              <Route path="/Settings" component={Settings} setTitle={this.setTitle}/>
-          </div>
-      </BrowserRouter>
-    )
-  }
-}
-
-
+              <Route path="/Settings" component={Settings} setTitle={this.setTitle}/> */
 // <Route exact path='/' render={(props) => (
 //   <PageContent {...props} pass_to_page_content='hi' />
 // )}/>

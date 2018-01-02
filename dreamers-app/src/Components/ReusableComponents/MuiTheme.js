@@ -1,31 +1,21 @@
-import React from 'react';
-
-import {
-  cyan700,
-  grey600,
-  pinkA100, pinkA200, pinkA400,
-  fullWhite,transparent,
-} from '../../style/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const myMuiTheme = getMuiTheme ({
 
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: 'Mukta Malar, sans-serif',
   borderRadius: 2,
   palette: {
-    primary1Color: cyan700,
-    primary2Color: cyan700,
-    primary3Color: grey600,
-    accent1Color: pinkA200,
-    accent2Color: pinkA400,
-    accent3Color: pinkA100,
-    textColor:fullWhite,
-    secondaryTextColor: fullWhite,
-    alternateTextColor: fullWhite,
+    primary1Color: '#1a256b',
+    primary2Color: '#1a256b',
+    primary3Color: '#757575',
+    accent1Color: '#ff4081',
+    accent2Color: '#f50057',
+    accent3Color: '#ff80ab',
+
 
   },
   appBar: {
   color: '#1a256b',
-  textColor: fullWhite,
+  textColor: '#ffffff',
   },
   avatar: {
   color: '#e7831b',
@@ -33,22 +23,22 @@ const myMuiTheme = getMuiTheme ({
 },
   drawer:{
   color:'#1a256b',
+  text:'#ffffff',
   },
 
   raisedButton:{
   color:'#1a256b',
-  textColor:fullWhite,
+  textColor:'#ffffff',
   },
 
   textField:{
-  textColor: '#000000',
-  hintColor: '#000000',
-  floatingLabelColor: '#000000',
-  disabledTextColor: '#000000',
+  textColor: '#ffffff',
+  hintColor: '#ffffff',
+  floatingLabelColor: '#ffffff',
+  disabledTextColor: '#ffffff',
   errorColor: '#ff0000',
-  focusColor: '#000000',
-  backgroundColor: 'transparent',
-  borderColor: '#000000',
+  focusColor: '#ffffff',
+  borderColor: '#ffffff',
 },
 
   floatingActionButton:{
@@ -56,17 +46,37 @@ const myMuiTheme = getMuiTheme ({
 },
 
   menuItem: {
-  textColor:fullWhite,
+  textColor:'#ffffff',
   dataHeight: 32,
   height: 48,
   hoverColor:'#263283',
-  selectedTextColor: fullWhite,
-  rightIconDesktopFill: grey600,
+  selectedTextColor: '#ffffff',
+  rightIconDesktopFill: '#757575',
 },
 toggle: {
   thumbOnColor: '#ffffff',
-  thumbOffColor: '#000000',
+  thumbOffColor: '#ffffff',
 },
+checkbox: {
+   boxColor: '#ffffff',
+   checkedColor: '#1a256b',
+   requiredColor:'#1a256b' ,
+   labelColor: '#ffffff',
+ },
+ datePicker: {
+  color: '#ffffff',
+  textColor: '#ffffff',
+  calendarTextColor: '#000000',
+  selectColor: '#1a256b',
+  selectTextColor:'#ffffff' ,
+  calendarYearBackgroundColor: '#1a256b',
+  headerColor: '#1a256b',
+  backgroundColor: '#1a256b'
+},
+paper:{
+  zDepth:5,
+}
+
 
 });
 

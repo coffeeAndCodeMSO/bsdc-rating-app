@@ -1,6 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 .App {
   text-align: center;
 }
 .Home{
   text-align: center;
+}
+/*
+Signup Component
+*/
+.Signup{
+  text-align: center;
+}
+/*
+Login Component
+*/
+.Login{
+  text-align: center;
+}
+/*
+Action Button on New Dream page
+*/
+.fab {
+    margin: 0px;
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    position: fixed;
+}
+/*
+Dream Title on New Dream page
+*/
+.dreamTitle {
+  color:#ffffff;
+  line-height:1.5;
+}
+/*
+Dream Date on New Dream page
+*/
+.dreamDate{
+  color:#ffffff;
+  line-height:.25;
+/*
+Dream description on New Dream page
+*/
+}
+.dreamDes{
+  color:#ffffff;
+  line-height:1.5;
 }
