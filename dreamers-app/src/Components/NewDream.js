@@ -4,6 +4,7 @@ import {Checkbox, DatePicker, TextField, RaisedButton,TimePicker} from 'material
 import axios from 'axios';
 import Auth from '../modules/Auth';
 
+
 const styles = {
   block: {
     maxWidth: 250,
@@ -37,7 +38,8 @@ export default class NewDream extends Component {
     axios.post('http://localhost:5000/api/journals/userToken',{
                 entryTitle: this.state.entryTitle,
                 description: this.state.description,
-                dreamDate: this.state.dreamDate
+                dreamDate: this.state.dreamDate,
+                dreamTime: this.state.dreamTime
               }, {
                 headers:{
                   authorization: `bearer ${Auth.getToken()}`

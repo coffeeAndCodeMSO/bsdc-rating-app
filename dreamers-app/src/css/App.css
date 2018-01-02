@@ -22,7 +22,7 @@ Login Component
   text-align: center;
 }
 /*
-Action Button
+Action Button on New Dream page
 */
 .fab {
     margin: 0px;
@@ -33,20 +33,20 @@ Action Button
     position: fixed;
 }
 /*
-Dream Title
+Dream Title on New Dream page
 */
 .dreamTitle {
   color:#ffffff;
   line-height:1.5;
 }
 /*
-Dream Date
+Dream Date on New Dream page
 */
 .dreamDate{
   color:#ffffff;
   line-height:.25;
 /*
-Dream description
+Dream description on New Dream page
 */
 }
 .dreamDes{
