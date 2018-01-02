@@ -28,21 +28,25 @@ injectTapEventPlugin();
                <div>
                <MenuItem
                  primaryText="My Dreams"
+                 style={{color:'#ffffff'}}
                  containerElement={<Link to="/Dreams" />}
                  onTouchTap={() => this.props.update("My Dreams")}
                />
                <MenuItem
                  primaryText="New Dream"
+                 style={{color:'#ffffff'}}
                  containerElement={<Link to="/NewDream" />}
                  onTouchTap={() => this.props.update("New Dream")}
                />
                <MenuItem
                  primaryText="Settings"
+                 style={{color:'#ffffff'}}
                  containerElement={<Link to="/Settings" />}
                  onTouchTap={() => this.props.update("Settings")}
                />
                <MenuItem
                  primaryText="LogOut"
+                 style={{color:'#ffffff'}}
                  containerElement={<Link to="/logout" />}
                  onTouchTap={() => this.props.update("Logout")}
                /></div>
@@ -50,11 +54,13 @@ injectTapEventPlugin();
                <div>
                <MenuItem
                  primaryText="Login"
+                 style={{color:'#ffffff'}}
                  containerElement={<Link to="/Login" />}
                  onTouchTap={() => this.props.update("Login")}
                />
                <MenuItem
                   primaryText="SignUp"
+                  style={{color:'#ffffff'}}
                   containerElement={<Link to="/signup" />}
                   onTouchTap={() => this.props.update("SignUp")}
                 />

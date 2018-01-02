@@ -4,7 +4,6 @@ import {Checkbox, DatePicker, TextField, RaisedButton,TimePicker} from 'material
 import axios from 'axios';
 import Auth from '../modules/Auth';
 
-
 const styles = {
   block: {
     maxWidth: 250,
@@ -14,6 +13,9 @@ const styles = {
     margin: 10
   }
 };
+
+
+
 export default class NewDream extends Component {
 
   constructor(props) {
@@ -21,17 +23,14 @@ export default class NewDream extends Component {
     this.state = {
       entryTitle: "",
       description: "",
-      dreamDate: "",
-      dreamTime:""
+      dreamDate: ""
     }
   };
-
   onChange = () => {
     this.setState({
       entryTitle: document.getElementById("title").value,
       description: document.getElementById("description").value,
-      dreamDate: document.getElementById("date").value,
-      dreamTime: document.getElementById("time").value
+      dreamDate: document.getElementById("date").value
     })
   }
   onSubmit= () => {
@@ -39,7 +38,6 @@ export default class NewDream extends Component {
                 entryTitle: this.state.entryTitle,
                 description: this.state.description,
                 dreamDate: this.state.dreamDate,
-                dreamTime: this.state.dreamTime
               }, {
                 headers:{
                   authorization: `bearer ${Auth.getToken()}`
@@ -58,14 +56,7 @@ export default class NewDream extends Component {
           onChange = {this.onChange}
           style={{margin:10}}
           />
-          <TimePicker
-         format="ampm"
-         hintText="What time is it?"
-         id= "time"
-         value={this.state.value12}
-         onChange = {this.onChange}
-         style={{margin:10}}
-       /><TextField
+        <TextField
           id="title"
           hintText="Dream Title"
           floatingLabelText="Give your dream a title"
