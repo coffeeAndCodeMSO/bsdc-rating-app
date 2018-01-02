@@ -72,10 +72,7 @@ export default class App extends Component {
     grad.generateColors(colors);
   }
 
-  componentDidMount(){
-    grad = new Gradient();
-    grad.animate();
-  }
+
 
   toggleDrawer = () => this.setState({ open: !this.state.open })
   setTitle = (title) => this.setState({title: title })
@@ -89,8 +86,9 @@ export default class App extends Component {
     this.setState({ authenticated: Auth.isUserAuthenticated() })
   }
 
-  componentDidMount() {
-    // check if user is logged in on refresh
+  componentDidMount(){
+    grad = new Gradient();
+    grad.animate();
     this.toggleAuthenticateStatus()
   }
 
