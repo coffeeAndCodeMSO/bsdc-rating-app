@@ -1,4 +1,4 @@
-var THREE = require('three');
+const THREE = require('three');
 
 class Gradient {
   constructor() {
