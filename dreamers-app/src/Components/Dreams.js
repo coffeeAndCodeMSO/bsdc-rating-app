@@ -1,9 +1,11 @@
 import React from 'react';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {Card, CardActions, CardTitle, CardText, FlatButton, FloatingActionButton} from 'material-ui';
+import {FloatingActionButton,Paper} from 'material-ui';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import Auth from '../modules/Auth';
+import '../css/App.css'
+const moment = require('moment');
 
 export default class Dreams extends React.Component {
   constructor(props){
@@ -20,6 +22,12 @@ export default class Dreams extends React.Component {
       }
     })
     .then((res) => {
+      for(var i in res.data) {
+        res.data[i].dreamDate = moment(res.data[i].dreamDate).format('dddd' + ', ' + 'MMMM Do YYYY').toString()
+      }
+      return res
+    })
+    .then((res) => {
       this.setState({
         journals: res.data
       })
@@ -30,12 +38,14 @@ export default class Dreams extends React.Component {
     return (
       <div>
         {this.state.journals.map((journal) => {
-          return <Card>
-          <CardTitle title={journal.entryTitle} subtitle={journal.dreamDate}/>
-            <CardText>
-            {journal.description}
-            </CardText>
-          </Card>
+          return<Paper style={{backgroundColor:'rgba(26, 37, 107, 0.25)'}} zDepth={5}>
+          <article>
+            <h3 className="dreamTitle">{journal.entryTitle}</h3>
+            <p className="dreamDate">{journal.dreamDate}</p>
+            <p className="dreamTime">{journal.dreamTime}</p>
+            <p className="dreamDes">{journal.description}</p>
+          </article>
+          </Paper>
         }
 
         )}

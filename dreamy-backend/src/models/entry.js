@@ -10,17 +10,13 @@ var entrySchema = new Schema({
   dateCreated: Date,
   dateDeleted: Date,
   dreamDate: Date,
+  dreamTime: Date,
   entryTitle: String,
-  anonymous: Boolean,
-  private: Boolean,
   description: String,
-  personalNotes: String,
   tags: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: tagSchema
   }],
-  bedTime: Date,
-  wakeTime: Date
 })
 
 module.exports = mongoose.model('Entry', entrySchema);

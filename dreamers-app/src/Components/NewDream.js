@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/App.css'
-import {Checkbox, DatePicker, TextField, RaisedButton} from 'material-ui';
+import {Checkbox, DatePicker, TextField, RaisedButton,TimePicker} from 'material-ui';
 import axios from 'axios';
 import Auth from '../modules/Auth';
 
@@ -13,6 +13,9 @@ const styles = {
     margin: 10
   }
 };
+
+
+
 export default class NewDream extends Component {
 
   constructor(props) {
@@ -23,7 +26,6 @@ export default class NewDream extends Component {
       dreamDate: ""
     }
   };
-
   onChange = () => {
     this.setState({
       entryTitle: document.getElementById("title").value,
@@ -35,7 +37,7 @@ export default class NewDream extends Component {
     axios.post('http://localhost:5000/api/journals/userToken',{
                 entryTitle: this.state.entryTitle,
                 description: this.state.description,
-                dreamDate: this.state.dreamDate
+                dreamDate: this.state.dreamDate,
               }, {
                 headers:{
                   authorization: `bearer ${Auth.getToken()}`
@@ -53,7 +55,8 @@ export default class NewDream extends Component {
           id= "date"
           onChange = {this.onChange}
           style={{margin:10}}
-          /><TextField
+          />
+        <TextField
           id="title"
           hintText="Dream Title"
           floatingLabelText="Give your dream a title"

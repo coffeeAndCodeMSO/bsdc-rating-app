@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardTitle, CardText } from 'material-ui';
+import { Paper } from 'material-ui';
 import Auth from '../modules/Auth';
 
 class HomePage extends React.Component {
@@ -11,13 +11,18 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Card className="container">
+      <Paper className="container"
+        zDepth={0}
+        style={{
+          backgroundColor:'trasparent',
+          padding:50,
+        }}>
          {Auth.isUserAuthenticated() ? (
-           <CardText style={{ fontSize: '16px', color: 'black' }}>Welcome! You are logged in.</CardText>
+           <p style={{ fontSize: '20px', color: '#ffffff' }}>Welcome! You are logged in.</p>
          ) : (
-           <CardText style={{ fontSize: '16px', color: 'black' }}>“Each night, when I go to sleep, I die. And the next morning, when I wake up, I am reborn.” </CardText>
+           <p style={{ fontSize: '20px', color: '#ffffff' }}><em>“Each night, when I go to sleep, I die. And the next morning, when I wake up, I am reborn.” </em>Gandhi</p>
          )}
-     </Card>
+     </Paper>
     )
   }
 };
