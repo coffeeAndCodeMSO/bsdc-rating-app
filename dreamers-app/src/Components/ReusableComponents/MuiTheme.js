@@ -14,7 +14,7 @@ const myMuiTheme = getMuiTheme ({
 
   },
   appBar: {
-  color: '#1a256b',
+  color: '#282828',
   textColor: '#ffffff',
   },
   avatar: {
@@ -22,12 +22,12 @@ const myMuiTheme = getMuiTheme ({
   backgroundColor: '#5b12f5',
 },
   drawer:{
-  color:'#1a256b',
+  color:'#282828',
   text:'#ffffff',
   },
 
   raisedButton:{
-  color:'#1a256b',
+  color:'#282828',
   textColor:'#ffffff',
   },
 
@@ -42,7 +42,7 @@ const myMuiTheme = getMuiTheme ({
 },
 
   floatingActionButton:{
-  color:'#1a256b',
+  color:'#282828',
 },
 
   menuItem: {
@@ -51,27 +51,27 @@ const myMuiTheme = getMuiTheme ({
   height: 48,
   hoverColor:'#263283',
   selectedTextColor: '#ffffff',
-  rightIconDesktopFill: '#757575',
+  rightIconDesktopFill: '#282828',
 },
 toggle: {
   thumbOnColor: '#ffffff',
-  thumbOffColor: '#ffffff',
+  thumbOffColor: '#000000',
 },
 checkbox: {
    boxColor: '#ffffff',
-   checkedColor: '#1a256b',
-   requiredColor:'#1a256b' ,
+   checkedColor: '#ffffff',
+   requiredColor:'#282828' ,
    labelColor: '#ffffff',
  },
  datePicker: {
   color: '#ffffff',
   textColor: '#ffffff',
   calendarTextColor: '#000000',
-  selectColor: '#1a256b',
+  selectColor: '#282828',
   selectTextColor:'#ffffff' ,
-  calendarYearBackgroundColor: '#1a256b',
-  headerColor: '#1a256b',
-  backgroundColor: '#1a256b'
+  calendarYearBackgroundColor: '#282828',
+  headerColor: '#282828',
+  backgroundColor: '#282828'
 },
 paper:{
   zDepth:5,

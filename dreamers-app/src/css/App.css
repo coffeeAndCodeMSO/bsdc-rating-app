@@ -37,8 +37,8 @@ Dream Title on New Dream page
 */
 .dreamTitle {
   color:#ffffff;
-  line-height:1.5;
-  margin: 5;
+  line-height:1;
+  margin: 5px;
 }
 /*
 Dream Date on New Dream page
@@ -46,7 +46,7 @@ Dream Date on New Dream page
 .dreamDate{
   color:#ffffff;
   line-height:.25;
-  margin: 5;
+  margin: 5px;
 /*
 Dream description on New Dream page
 */
@@ -54,5 +54,8 @@ Dream description on New Dream page
 .dreamDes{
   color:#ffffff;
   line-height:1.5;
-  margin: 5;
+  margin: 5px;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px hsla(216, 59%, 44%, 0.24) inset;
 }
