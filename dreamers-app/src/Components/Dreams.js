@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import Auth from '../modules/Auth';
 import '../css/App.css'
-
+const moment = require('moment');
 
 export default class Dreams extends React.Component {
   constructor(props){
@@ -20,6 +20,13 @@ export default class Dreams extends React.Component {
       headers:{
         authorization: `bearer ${Auth.getToken()}`
       }
+    })
+    .then((res) => {
+      for(var i in res.data) {
+        res.data[i].dreamDate = moment(res.data[i].dreamDate).format('dddd MMMM Do YYYY').toString()
+        console.log(res.data[i])
+      }
+      return res
     })
     .then((res) => {
       this.setState({
