@@ -37,12 +37,7 @@ router.route('/journals/userToken')
       entry.createdBy = req.user._id;
       entry.dreamDate = req.body.dreamDate;
       entry.entryTitle = req.body.entryTitle;
-      entry.anonymous = req.body.anonymous;
-      entry.private = req.body.private;
       entry.description = req.body.description;
-      entry.personalNotes = req.body.personalNotes;
-      entry.bedTime = req.body.bedTime;
-      entry.wakeTime = req.body.wakeTime;
       req.user.journalEntries.push(entry);
       entry.save((err, entry) => {
         if (err)
@@ -88,12 +83,7 @@ router.route('/journal/update/:journalid')
         res.send(err);
       journal.dreamDate = req.body.dreamDate || journal.dreamDate;
       journal.entryTitle = req.body.entryTitle || journal.entryTitle;
-      journal.anonymous = req.body.anonymous || journal.anonymous;
-      journal.private = req.body.private || journal.private;
       journal.description = req.body.description || journal.description;
-      journal.personalNotes = req.body.personalNotes || journal.personalNotes;
-      journal.bedTime = req.body.bedTime || journal.bedTime;
-      journal.wakeTime = req.body.wakeTime || journal.wakeTime;
       journal.save((err, journal) => {
         if (err)
           res.send(err);
