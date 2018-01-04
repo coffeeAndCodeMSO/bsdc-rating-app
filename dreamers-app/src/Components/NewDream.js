@@ -14,10 +14,7 @@ const styles = {
   }
 };
 
-
-
 export default class NewDream extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -27,6 +24,7 @@ export default class NewDream extends Component {
       colors:''
     }
   };
+
   onChange = () => {
     this.setState({
       entryTitle: document.getElementById("title").value,
@@ -73,76 +71,106 @@ export default class NewDream extends Component {
   }
 
   onSubmit= () => {
-    axios.post('http://localhost:5000/api/journals/userToken',{
-                entryTitle: this.state.entryTitle,
-                description: this.state.description,
-                dreamDate: this.state.dreamDate,
-              }, {
-                headers:{
-                  authorization: `bearer ${Auth.getToken()}`
-                }
-              })
-         .then((response) => {console.log(response)})
+    axios.post(
+      'http://localhost:5000/api/journals/userToken',
+      {
+        entryTitle: this.state.entryTitle,
+        description: this.state.description,
+        dreamDate: this.state.dreamDate,
+      },
+      {
+        headers:{
+          authorization: `bearer ${Auth.getToken()}`
+        }
+      }
+    )
+    .then((response) => {console.log(response)})
   }
-  render (){
+
+  render() {
     return (
       <form action="/Dreams" onSubmit={this.onSubmit}>
-      <div className='newDream'>
-        <DatePicker
-          mode="portrait"
-          hintText="Date"
-          id= "date"
-          onChange = {this.onChange}
-          style={{margin:10}}
+        <div className='newDream'>
+          <DatePicker
+            mode="portrait"
+            hintText="Date"
+            id= "date"
+            onChange = {this.onChange}
+            style={{margin:10}}
           />
-        <TextField
-          id="title"
-          hintText="Dream Title"
-          floatingLabelText="Give your dream a title"
-          onChange ={this.onChange}
-          style={{margin:10}}
-        /><br />
-      <TextField
-          id="description"
-          hintText="Dream Description"
-          floatingLabelText="Give your dream a description"
-          onChange ={this.onChange}
-          multiLine={true}
-          rows={2}
-          fullWidth={true}
-          style={{margin:10}}
-        /><br />
-      <div style={styles.block}>
-       <Checkbox
-         label="Lucid"
-         style={styles.checkbox}
-         onClick={() => this.onColor("Lucid")}
-       /><Checkbox
-         label="Nightmare"
-         style={styles.checkbox}
-         onClick={() => this.onColor("Nightmare")}
-       /><Checkbox
-         label="Epic"
-         style={styles.checkbox}
-         onClick={() => this.onColor("Epic")}
-       /><Checkbox
-         label="Recurring"
-         style={styles.checkbox}
-         onClick={() => this.onColor("Recurring")}
-       /><Checkbox
-         label="Adult"
-         style={styles.checkbox}
-         onClick={() => this.onColor("Adult")}
-       /></div>
-     <div className="saveButton">
-         <RaisedButton
-           type="submit"
-           label="Save"
-           style={{margin:10}}
-           />
-       </div>
-      </div>
-    </form>
+          <TextField
+            id="title"
+            hintText="Dream Title"
+            floatingLabelText="Give your dream a title"
+            onChange ={this.onChange}
+            style={{margin:10}}
+          />
+          <br />
+          <TextField
+            id="description"
+            hintText="Dream Description"
+            floatingLabelText="Give your dream a description"
+            onChange ={this.onChange}
+            multiLine={true}
+            rows={2}
+            fullWidth={true}
+            style={{margin:10}}
+          />
+          <TextField
+            id="title"
+            hintText="Dream Title"
+            floatingLabelText="Give your dream a title"
+            onChange ={this.onChange}
+            style={{margin:10}}
+          />
+          <br />
+          <TextField
+            id="description"
+            hintText="Dream Description"
+            floatingLabelText="Give your dream a description"
+            onChange ={this.onChange}
+            multiLine={true}
+            rows={2}
+            fullWidth={true}
+            style={{margin:10}}
+          />
+          <br />
+          <div style={styles.block}>
+            <Checkbox
+              label="Lucid"
+              style={styles.checkbox}
+              onClick={() => this.onColor("Lucid")}
+            />
+            <Checkbox
+              label="Nightmare"
+              style={styles.checkbox}
+              onClick={() => this.onColor("Nightmare")}
+            />
+            <Checkbox
+              label="Epic"
+              style={styles.checkbox}
+              onClick={() => this.onColor("Epic")}
+            />
+            <Checkbox
+              label="Recurring"
+              style={styles.checkbox}
+              onClick={() => this.onColor("Recurring")}
+            />
+            <Checkbox
+              label="Adult"
+              style={styles.checkbox}
+              onClick={() => this.onColor("Adult")}
+            />
+          </div>
+          <div className="saveButton">
+            <RaisedButton
+              type="submit"
+              label="Save"
+              style={{margin:10}}
+            />
+          </div>
+        </div>
+      </form>
     );
   }
 }

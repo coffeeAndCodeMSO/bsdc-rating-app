@@ -11,9 +11,8 @@ const SignUpForm = ({
   errors,
   user,
 }) => (
-      <div className="Signup">
+  <div className="Signup">
     <form action="/" onSubmit={onSubmit}>
-
       {errors.summary && <p className="error-message">{errors.summary}</p>}
       <div className="field-line">
         <TextField
@@ -24,7 +23,6 @@ const SignUpForm = ({
           value={user.name}
         />
       </div>
-
       <div className="field-line">
         <TextField
           floatingLabelText="Email"
@@ -34,7 +32,6 @@ const SignUpForm = ({
           value={user.email}
         />
       </div>
-
       <div className="field-line">
         <TextField
           floatingLabelText="Password"
@@ -45,11 +42,9 @@ const SignUpForm = ({
           value={user.password}
         />
       </div>
-
       <div className="button-line">
         <RaisedButton type="submit" label="Create New Account" labelColor= "white"  />
       </div>
-
       <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
     </form>
   </div>

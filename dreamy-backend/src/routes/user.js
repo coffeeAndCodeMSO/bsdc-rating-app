@@ -18,7 +18,8 @@ router.route('/users')
         console.log(users)
       res.json(users);
     });
-  })
+  });
+
 //create user//
 router.route('/user/create')
   .post((req, res) => {
@@ -41,7 +42,8 @@ router.route('/user/create')
         message: "User created"
       });
     });
-  })
+  });
+
 //find user by id//
 router.route('/user/find/:userid')
   .get((req, res) => {
@@ -50,7 +52,8 @@ router.route('/user/find/:userid')
         res.send(err);
       res.json(user);
     });
-  })
+  });
+
 //update user by id//
 router.route('/user/update/:userid')
   .post((req, res) => {
@@ -75,7 +78,8 @@ router.route('/user/update/:userid')
         });
       });
     });
-  })
+  });
+  
 //works to delete user but not journal entries//
 router.route('/user/delete/:userid')
   .delete((req, res) => {

@@ -54,6 +54,7 @@ router.route('/journals/userToken')
         res.json(user)
       })
   });
+
 //get journal by journal id//
 router.route('/journal/:journalid')
   .get((req, res) => {
@@ -62,7 +63,8 @@ router.route('/journal/:journalid')
         res.send(err);
       res.json(journal)
     });
-  })
+  });
+
 // seems to work but does not actually delete from mlab//
 router.route('/journal/delete/:journalid')
   .delete((req, res) => {
@@ -76,7 +78,7 @@ router.route('/journal/delete/:journalid')
         message: 'Entry Deleted'
       });
     });
-  })
+  });
 
 // update a journal entry//
 router.route('/journal/update/:journalid')
@@ -98,6 +100,6 @@ router.route('/journal/update/:journalid')
         res.json(journal);
       });
     });
-  })
+  });
 
 module.exports = router;

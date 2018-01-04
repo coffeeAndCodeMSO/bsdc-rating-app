@@ -5,10 +5,9 @@ import LoginForm from '../Components/LoginForm.jsx';
 
 
 class LoginPage extends React.Component {
-
-  /**
-   * Class constructor.
-   */
+  /*
+  Class constructor.
+  */
   constructor(props, context) {
     super(props, context);
 
@@ -35,10 +34,10 @@ class LoginPage extends React.Component {
   }
 
   /**
-   * Process the form.
-   *
-   * @param {object} event - the JavaScript event object
-   */
+  * Process the form.
+  *
+  * @param {object} event - the JavaScript event object
+  */
   processForm(event) {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
@@ -54,10 +53,10 @@ class LoginPage extends React.Component {
     xhr.open('post', 'http://localhost:5000/auth/login');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
+
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         // success
-
         // change the component-container state
         this.setState({
           errors: {}
@@ -83,17 +82,19 @@ class LoginPage extends React.Component {
         });
       }
     });
+
     xhr.send(formData);
   }
 
   /**
-   * Change the user object.
-   *
-   * @param {object} event - the JavaScript event object
-   */
+  * Change the user object.
+  *
+  * @param {object} event - the JavaScript event object
+  */
   changeUser(event) {
     const field = event.target.name;
     const user = this.state.user;
+
     user[field] = event.target.value;
 
     this.setState({
@@ -102,8 +103,8 @@ class LoginPage extends React.Component {
   }
 
   /**
-   * Render the component.
-   */
+  * Render the component.
+  */
   render() {
     return (
       <LoginForm
@@ -115,7 +116,6 @@ class LoginPage extends React.Component {
       />
     );
   }
-
 }
 
 LoginPage.contextTypes = {

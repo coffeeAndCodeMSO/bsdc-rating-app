@@ -4,7 +4,6 @@ import Auth from '../modules/Auth';
 
 
 class LogoutFunction extends React.Component {
-
   componentDidMount() {
     // deauthenticate user
     Auth.deauthenticateUser();
