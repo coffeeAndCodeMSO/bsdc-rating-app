@@ -8,7 +8,6 @@ import SignUpPage from './containers/SignUpPage.js';
 import Dreams from './Components/Dreams.js';
 import Settings from './Components/Settings.js'
 import NewDream from './Components/NewDream.js';
-import Home from './Home.js'
 import Header from './Components/ReusableComponents/Header';
 
 import { Gradient } from './webgl/gradient';
@@ -95,7 +94,7 @@ export default class App extends Component {
             update={this.update}
           />
           <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} setTitle={this.setTitle.bind(this)}/>
-          <LoggedOutRoute path="/login" component={LoginPage} render={() => (<Home changeColors={this.changeColors} />)} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+          <LoggedOutRoute path="/login" component={LoginPage} render={() => (<HomePage changeColors={this.changeColors} />)} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
           <LoggedOutRoute path="/signup" component={SignUpPage}/>
           <Route path="/logout" component={LogoutFunction}/>
           <PrivateRoute path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
@@ -106,23 +105,3 @@ export default class App extends Component {
     )
   }
 }
-
-/*          <div>
-<Header title={this.state.title}
-  open={this.state.open}
-  setValue={this.toggleDrawer}
-  update={this.update}
-/>
-<Route
-path="/"
-exact
-render={() => (<Home changeColors={this.changeColors} />)}
-setTitle={this.setTitle.bind(this)}
-/>
-<Route path="/Login" render={() => (<Home changeColors={this.changeColors} />)} setTitle={this.setTitle}/>
-<Route path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
-<Route path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
-<Route path="/Settings" component={Settings} setTitle={this.setTitle}/> */
-// <Route exact path='/' render={(props) => (
-//   <PageContent {...props} pass_to_page_content='hi' />
-// )}/>
