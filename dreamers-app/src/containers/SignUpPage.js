@@ -4,10 +4,9 @@ import SignUpForm from '../Components/SignUpForm.js';
 
 
 class SignUpPage extends React.Component {
-
   /**
-   * Class constructor.
-   */
+  * Class constructor.
+  */
   constructor(props, context) {
     super(props, context);
 
@@ -26,10 +25,10 @@ class SignUpPage extends React.Component {
   }
 
   /**
-   * Process the form.
-   *
-   * @param {object} event - the JavaScript event object
-   */
+  * Process the form.
+  *
+  * @param {object} event - the JavaScript event object
+  */
   processForm(event) {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
@@ -48,10 +47,9 @@ class SignUpPage extends React.Component {
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         // success
-
         // change the component-container state
         this.setState({
-          errors: {}
+        errors: {}
         });
 
         // set a message
@@ -61,7 +59,6 @@ class SignUpPage extends React.Component {
         this.props.history.push('/login');
       } else {
         // failure
-
         const errors = xhr.response.errors ? xhr.response.errors : {};
         errors.summary = xhr.response.message;
 
@@ -70,14 +67,15 @@ class SignUpPage extends React.Component {
         });
       }
     });
+
     xhr.send(formData);
   }
 
   /**
-   * Change the user object.
-   *
-   * @param {object} event - the JavaScript event object
-   */
+  * Change the user object.
+  *
+  * @param {object} event - the JavaScript event object
+  */
   changeUser(event) {
     const field = event.target.name;
     const user = this.state.user;
@@ -89,8 +87,8 @@ class SignUpPage extends React.Component {
   }
 
   /**
-   * Render the component.
-   */
+  * Render the component.
+  */
   render() {
     return (
       <SignUpForm
@@ -101,7 +99,6 @@ class SignUpPage extends React.Component {
       />
     );
   }
-
 }
 
 SignUpPage.contextTypes = {
