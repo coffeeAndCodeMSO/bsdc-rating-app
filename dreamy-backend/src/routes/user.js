@@ -27,13 +27,8 @@ router.route('/user/create')
     user.dateCreated = new Date();
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
+    user.avatar = req.body.avatar;
     user.email = req.body.email;
-    user.birthDate = req.body.birthDate;
-    user.age = req.body.age;
-    user.sign = req.body.sign;
-    user.gender = req.body.gender;
-    user.interests = req.body.interests;
-    user.bio = req.body.bio;
     user.save((err) => {
       if (err)
         res.send(err);

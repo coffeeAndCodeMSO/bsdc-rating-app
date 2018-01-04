@@ -19,13 +19,12 @@ injectTapEventPlugin();
              onRequestChange={() => this.props.setValue()}
              open={this.props.open}
            >
-           <Avatar
-             size={100}
-             style={{margin:5}}
-           />
-         <Divider/>
              {this.props.authenticated ? (
                <div>
+                 <Avatar
+                   size={100}
+                   style={{margin:5}}
+                 />
                <MenuItem
                  primaryText="My Dreams"
                  style={{color:'#ffffff'}}

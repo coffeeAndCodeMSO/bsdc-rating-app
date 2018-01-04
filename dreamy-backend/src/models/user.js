@@ -9,24 +9,17 @@ var userSchema = new Schema({
   dateDeleted: Date,
   firstName: String,
   lastName: String,
+  avatar: String,
   email: {
     type: String,
     index: {unique: true}
   },
   name: String,
   password: String,
-  birthDate: Date,
-  age: Number,
-  sign: String,
-  gender: String,
-  interests: String,
-  bio: String,
   journalEntries: [{
     type: Schema.Types.ObjectId,
     ref: 'Entry'
   }],
-  bedTime: Date,
-  wakeTime: Date
 })
 
 /**
