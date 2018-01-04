@@ -94,12 +94,12 @@ export default class App extends Component {
             setValue={this.toggleDrawer}
             update={this.update}
           />
-          <PropsRoute exact path="/" component={HomePage} render={() => (<Home changeColors={this.changeColors} />)} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} setTitle={this.setTitle.bind(this)}/>
+          <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} setTitle={this.setTitle.bind(this)}/>
           <LoggedOutRoute path="/login" component={LoginPage} render={() => (<Home changeColors={this.changeColors} />)} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
           <LoggedOutRoute path="/signup" component={SignUpPage}/>
           <Route path="/logout" component={LogoutFunction}/>
           <PrivateRoute path="/Dreams" component={Dreams} setTitle={this.setTitle}/>
-          <PrivateRoute path="/NewDream" component={NewDream} setTitle={this.setTitle}/>
+          <PrivateRoute path="/NewDream" component={NewDream} changeColors={this.changeColors} setTitle={this.setTitle}/>
           <PrivateRoute path="/Settings" component={Settings} setTitle={this.setTitle}/>
         </div>
       </BrowserRouter>
