@@ -66,10 +66,10 @@ injectTapEventPlugin();
                   onTouchTap={() => this.props.update("SignUp")}
                 />
              </div>
-             )}
+             
 
 
-export default class Header extends React.Component {
+export default class Header extends React.Component
   render(){
     return(
       <div>
