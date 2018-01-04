@@ -14,10 +14,8 @@ const LoginForm = ({
 }) => (
   <div className="Login">
     <form action="/" onSubmit={onSubmit}>
-
       {successMessage && <p className="success-message">{successMessage}</p>}
       {errors.summary && <p className="error-message">{errors.summary}</p>}
-
       <div className="field-line">
         <TextField
           floatingLabelText="Email"
@@ -27,7 +25,6 @@ const LoginForm = ({
           value={user.email}
         />
       </div>
-
       <div className="field-line">
         <TextField
           floatingLabelText="Password"
@@ -38,11 +35,9 @@ const LoginForm = ({
           value={user.password}
         />
       </div>
-
       <div className="button-line">
         <RaisedButton type="submit" label="Log in" labelColor= "white" />
       </div>
-
       <CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
     </form>
   </div>

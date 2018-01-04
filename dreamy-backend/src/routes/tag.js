@@ -35,7 +35,7 @@ router.route('/tag/create/:journalid')
         res.json(journal)
       });
     });
-  })
+  });
 
 //get one tag by tag id//
 router.route('/tag/:tagid')
@@ -45,7 +45,7 @@ router.route('/tag/:tagid')
         res.send(err);
       res.json(tag);
     });
-  })
+  });
 
 //get all tags per journal id//
 router.route('/tags/:journalid')
@@ -55,7 +55,7 @@ router.route('/tags/:journalid')
         res.send(err);
       res.json(journal.tags);
     });
-  })
+  });
 
 //get all tags per userid//
 router.route('/tags/:userid')
@@ -65,7 +65,7 @@ router.route('/tags/:userid')
         res.send(err);
       res.json(user.journalEntries.tags);
     });
-  })
+  });
 
 //update tag//
 router.route('/tag/update/:tagid')
@@ -80,7 +80,7 @@ router.route('/tag/update/:tagid')
         res.json(tag);
       });
     });
-  })
+  });
 
 //delete tag//
 router.route('/tag/delete/:tagid')
@@ -95,6 +95,6 @@ router.route('/tag/delete/:tagid')
         message: 'Tag deleted'
       });
     });
-  })
+  });
 
 module.exports = router;

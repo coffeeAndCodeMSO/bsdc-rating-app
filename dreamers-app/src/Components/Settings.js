@@ -3,19 +3,19 @@ import {List, ListItem, Toggle, Checkbox, Divider, Subheader} from 'material-ui'
 
 const styles = {
   root: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
+  display: 'flex',
+  flexWrap: 'wrap'
+  }
 };
 
 const Settings = () => (
   <div style={styles.root}>
-      <Divider />
+    <Divider />
       <List>
         <ListItem
-          leftCheckbox={<Checkbox />}
-          primaryText="Notifications"
-          secondaryText="Allow notifications"
+        leftCheckbox={<Checkbox />}
+        primaryText="Notifications"
+        secondaryText="Allow notifications"
         />
       </List>
       <Divider />
@@ -24,7 +24,7 @@ const Settings = () => (
         <ListItem primaryText="Entry Reminder?" rightToggle={<Toggle />} />
         <ListItem primaryText="Public/Private" rightToggle={<Toggle />} />
       </List>
-      <Divider />
+    <Divider />
   </div>
 );
 

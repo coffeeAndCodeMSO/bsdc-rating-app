@@ -16,7 +16,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-
 // mongoose.connect('ds259105.mlab.com:59105/dreamers -u n8 -p nstn8e81');
 mongoose.connect('mongodb://n8:nstn8e81@ds259105.mlab.com:59105/dreamers', {useMongoClient: true})
 var port = 5000;
@@ -42,7 +41,7 @@ router.route('/users')
 
       res.json(users)
     });
-  })
+  });
 
   /*******************************************
     CREATE USER
@@ -71,7 +70,7 @@ router.route('/users')
 
         res.json({message: "User created"});
     });
-  })
+  });
 
   /*******************************************
     GET ONE USER BY ID
