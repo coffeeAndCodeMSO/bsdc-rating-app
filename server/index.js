@@ -44,7 +44,7 @@ router.route('/users')
 
       res.json(users)
     });
-  });
+  })
 
   /*******************************************
     CREATE USER
