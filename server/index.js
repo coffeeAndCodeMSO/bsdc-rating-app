@@ -16,9 +16,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+
 // mongoose.connect('ds259105.mlab.com:59105/dreamers -u n8 -p nstn8e81');
 mongoose.connect('mongodb://n8:nstn8e81@ds259105.mlab.com:59105/dreamers', {useMongoClient: true})
-var port = 5000;
+var port = process.env.PORT || 5000;
+
+app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
 var router = express.Router();
 
@@ -165,5 +168,9 @@ router.route('/journals/:journalid')
   .delete(function(req, res) {
     res.json({message: "deletes one journal entry by id by user id"})
   })
+
+app.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
+});
 
 app.listen(port);
