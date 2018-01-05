@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Auth from '../modules/Auth';
 import LoginForm from '../Components/LoginForm.jsx';
-
+import axios from 'axios';
 
 class LoginPage extends React.Component {
   /*

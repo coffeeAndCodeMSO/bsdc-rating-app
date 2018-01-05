@@ -116,14 +116,15 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-    const validationResult = validateLoginForm(req.body);
-    if (!validationResult.success) {
-      return res.status(400).json({
-        success: false,
-        message: validationResult.message,
-        errors: validationResult.errors
-      });
-    }
+  console.log(req);
+  const validationResult = validateLoginForm(req.body);
+  if (!validationResult.success) {
+    return res.status(400).json({
+      success: false,
+      message: validationResult.message,
+      errors: validationResult.errors
+    });
+  }
 
 
   return passport.authenticate('local-login', (err, token, userData) => {

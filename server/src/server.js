@@ -31,6 +31,8 @@ mongoose.connect('mongodb://n8:nstn8e81@ds259105.mlab.com:59105/dreamers', {
   useMongoClient: true
 })
 
+app.use(express.static(path.resolve(__dirname, '../../react-ui/build')));
+
 const router = express.Router();
 
 router.use((req, res, next) => {
@@ -45,6 +47,9 @@ app.use('/api', EntryRouter);
 app.use('/api', TagRouter);
 app.use('/api', apiRouter);
 
+app.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../../react-ui/build', 'index.html'));
+});
 // Set Port, hosting services will look for process.env.PORT
 app.set('port', (process.env.PORT || 5000));
 
