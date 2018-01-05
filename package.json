@@ -1,7 +1,7 @@
 {
-  "name": "heroku-cra-node",
+  "name": "dreamers-app",
   "version": "1.0.0",
-  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "description": "built with single directory and served to heroku",
   "engines": {
     "node": "6.11.x"
   },
