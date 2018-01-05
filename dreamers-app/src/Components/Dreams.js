@@ -44,7 +44,7 @@ export default class Dreams extends React.Component {
       <div>
         {this.state.journals.map((journal) => {
           return (
-            <Paper style={{backgroundColor:'rgba(26, 37, 107, 0.25)'}} zDepth={5}>
+            <Paper style={{backgroundColor:'rgba(26, 37, 107, 0.39)'}} zDepth={5}>
               <article>
                 <h3 className="dreamTitle">{journal.entryTitle}</h3>
                 <p className="dreamDate">{journal.dreamDate}</p>

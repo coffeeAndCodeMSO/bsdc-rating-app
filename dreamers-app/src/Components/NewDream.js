@@ -63,8 +63,8 @@ export default class NewDream extends Component {
         break;
       case "Adult":
         self.props.changeColors({
-          color1: '#372C3E',//darkslategray
-          color2: '#ADACAD' //purplish
+          color1: '#b57e3e',//Peach
+          color2: '#fe0a8e' //Fushia
         });
         break;
     }
@@ -96,24 +96,6 @@ export default class NewDream extends Component {
             hintText="Date"
             id= "date"
             onChange = {this.onChange}
-            style={{margin:10}}
-          />
-          <TextField
-            id="title"
-            hintText="Dream Title"
-            floatingLabelText="Give your dream a title"
-            onChange ={this.onChange}
-            style={{margin:10}}
-          />
-          <br />
-          <TextField
-            id="description"
-            hintText="Dream Description"
-            floatingLabelText="Give your dream a description"
-            onChange ={this.onChange}
-            multiLine={true}
-            rows={2}
-            fullWidth={true}
             style={{margin:10}}
           />
           <TextField

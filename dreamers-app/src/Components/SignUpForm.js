@@ -45,7 +45,7 @@ const SignUpForm = ({
       <div className="button-line">
         <RaisedButton type="submit" label="Create New Account" labelColor= "white"  />
       </div>
-      <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
+      <p style={{ fontSize: '15px', color: '#ffffff', padding: '5px' }}>Already have an account? <Link to={'/login'} style={{fontSize: '15px', color:'#00f0ff'}}>Log in</Link></p>
     </form>
   </div>
 );

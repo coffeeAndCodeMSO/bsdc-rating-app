@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-size:auto 100%;
 }
 
 .App {
@@ -42,17 +43,18 @@ Action Button on New Dream page
 Dream Title on New Dream page
 */
 .dreamTitle {
-  color:#ffffff;
+  color:#cbcbcb;
   line-height:1;
   margin: 5px;
+  padding-top: 10px;
 }
 
 /*
 Dream Date on New Dream page
 */
 .dreamDate{
-  color:#ffffff;
-  line-height:.25;
+  color:#cbcbcb;
+  line-height:1;
   margin: 5px;
 }
 
@@ -60,9 +62,10 @@ Dream Date on New Dream page
 Dream description on New Dream page
 */
 .dreamDes{
-  color:#ffffff;
+  color:#cbcbcb;
   line-height:1.5;
   margin: 5px;
+  padding-bottom: 10px;
 }
 
 input:-webkit-autofill {
