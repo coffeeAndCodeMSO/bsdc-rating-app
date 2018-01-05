@@ -1,15 +1,16 @@
-# Mary the user,
+# Mary the user
 
 ## Epic Cases
 
-Sharing
-Recording
-Secure
-Private Public
-Review
+- Sharing
+- Recording
+- Secure
+- Private Public
+- Review
 
 
 ## As Mary the user I would like to log in to record my dreams
+
 - create
 - add, delete, edit
 
@@ -30,7 +31,4 @@ Review
 
 # Dr. Bruce, Secondary user
 
-
-
-
-Advertisers, tertiary user
+# Advertisers, tertiary user

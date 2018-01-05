@@ -1,7 +1,7 @@
 {
-  "name": "dreamy-backend",
+  "name": "server",
   "version": "1.0.0",
-  "description": "back end server",
+  "description": "back end server for dreamers app",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",

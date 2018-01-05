@@ -2,8 +2,8 @@
 
 ## Resources
 
-- users
-- journal entry
+  - users
+  - journal entry
 
 ### users
   - id - string
