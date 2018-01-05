@@ -18,7 +18,7 @@ export default class Dreams extends React.Component {
 
   componentDidMount() {
     axios.get(
-      'http://localhost:5000/api/journals/userToken',
+      'https://dreamers-mcs.herokuapp.com/api/journals/userToken',
       {
         headers:{
           authorization: `bearer ${Auth.getToken()}`

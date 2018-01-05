@@ -72,7 +72,7 @@ export default class NewDream extends Component {
 
   onSubmit= () => {
     axios.post(
-      'http://localhost:5000/api/journals/userToken',
+      'https://dreamers-mcs.herokuapp.com/api/journals/userToken',
       {
         entryTitle: this.state.entryTitle,
         description: this.state.description,
