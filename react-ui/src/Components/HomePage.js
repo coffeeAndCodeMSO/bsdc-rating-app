@@ -13,7 +13,7 @@ class HomePage extends React.Component {
       <Paper className="container"
         zDepth={0}
         style={{
-        backgroundColor:'trasparent',
+        backgroundColor:'transparent',
         padding:50,
         }}
       >
