@@ -37,34 +37,33 @@ export default class NewDream extends Component {
     var self = this;
     switch(tag){
       case "Lucid":
-        //set colors for Lucid tag
         self.props.changeColors({
-          color1: '#029C62', //greenish
-          color2: '#2C029C'//purplish
+          color1: '#029C62',
+          color2: '#2C029C'
         });
         break;
       case "Nightmare":
         self.props.changeColors({
-          color1: '#9C022E', //dark red
-          color2: '#000000' //black
+          color1: '#9C022E',
+          color2: '#000000'
         });
         break;
       case "Epic":
         self.props.changeColors({
-          color1: '#21254D',//darkish blue
-          color2: '#92D7D1'//aqua
+          color1: '#21254D',
+          color2: '#92D7D1'
         });
         break;
       case "Recurring":
         self.props.changeColors({
-          color1: '#271063',//purplish
-          color2: '#A8E5F3' //bluish
+          color1: '#271063',
+          color2: '#A8E5F3'
         });
         break;
       case "Adult":
         self.props.changeColors({
-          color1: '#b57e3e',//Peach
-          color2: '#fe0a8e' //Fushia
+          color1: '#b57e3e',
+          color2: '#fe0a8e' 
         });
         break;
     }

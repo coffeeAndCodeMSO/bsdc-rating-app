@@ -64,7 +64,17 @@ export default class App extends Component {
     grad.generateColors(colors);
   }
 
-  toggleDrawer = () => this.setState({ open: !this.state.open })
+  resetColors = () => grad.generateColors({
+    color1: '#191970', //midnight blue
+    color2: '#00CED1', //dark turquoise
+  })
+
+
+  toggleDrawer = () => {
+    this.setState({ open: !this.state.open })
+    this.resetColors()
+  }
+
   setTitle = (title) => this.setState({title: title })
   update = (title) => this.setState({
     open: !this.state.open,
@@ -79,6 +89,7 @@ export default class App extends Component {
   componentDidMount(){
     grad = new Gradient();
     grad.animate();
+    this.resetColors()
     this.toggleAuthenticateStatus()
   }
 

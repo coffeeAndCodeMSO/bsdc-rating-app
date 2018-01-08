@@ -1,6 +1,6 @@
 # Dreamers App
 
-  Dreamers in an app intended to allow its users to record, review, and compare there dreams.  Users will be able to write out descriptions of there dreams in a journal format.  They will be able to upload, read, compare, and delete their journal entries.  They will have the option of sharing their dreams in a public forum or keep them private.  If they choose to share their dream in a public forum they will have the option to do so anonymously. There will be options to compare there entries based on different tags that the user will define.
+  Dreamers is an app intended to allow its users to record, review, and compare their dreams.  Users will be able to write out descriptions of their dreams in a journal format.  They will be able to upload, read, compare, and delete their journal entries.  They will have the option of sharing their dreams in a public forum or keeping them private.  If they choose to share their dream in a public forum they will have the option to do so anonymously. There will be options to compare their entries based on different tags that the user will define.
 
   ## Table of Contents
 
@@ -69,7 +69,7 @@ Week 7: test frontend/backend, fix bugs, maybe cry a little
 
 Personal Schedules
 
-Kerry: Wednesday Nov. 22nd - 27th
+Kerry: 
 Keesha: Always here
 Nate: Wednesday Nov. 22nd - 26th
 Matt: Nov. 22nd-26th, Dec. 17th-24th
