@@ -33,39 +33,47 @@ export default class NewDream extends Component {
     })
   }
 
-  onColor = (tag) => {
+  onColor = (e, tag) => {
     var self = this;
-    switch(tag){
-      case "Lucid":
-        self.props.changeColors({
-          color1: '#029C62',
-          color2: '#2C029C'
-        });
-        break;
-      case "Nightmare":
-        self.props.changeColors({
-          color1: '#9C022E',
-          color2: '#000000'
-        });
-        break;
-      case "Epic":
-        self.props.changeColors({
-          color1: '#21254D',
-          color2: '#92D7D1'
-        });
-        break;
-      case "Recurring":
-        self.props.changeColors({
-          color1: '#271063',
-          color2: '#A8E5F3'
-        });
-        break;
-      case "Adult":
-        self.props.changeColors({
-          color1: '#b57e3e',
-          color2: '#fe0a8e' 
-        });
-        break;
+
+    if(e.target.checked){
+      switch(tag){
+        case "Lucid":
+          self.props.changeColors({
+            color1: '#029C62',
+            color2: '#2C029C'
+          });
+          break;
+        case "Nightmare":
+          self.props.changeColors({
+            color1: '#9C022E',
+            color2: '#000000'
+          });
+          break;
+        case "Epic":
+          self.props.changeColors({
+            color1: '#21254D',
+            color2: '#92D7D1'
+          });
+          break;
+        case "Recurring":
+          self.props.changeColors({
+            color1: '#271063',
+            color2: '#A8E5F3'
+          });
+          break;
+        case "Adult":
+          self.props.changeColors({
+            color1: '#b57e3e',
+            color2: '#fe0a8e'
+          });
+          break;
+      }
+    }else{
+      self.props.changeColors({
+        color1: '#191970',
+        color2: '#00ced1'
+      });
     }
   }
 
@@ -120,27 +128,27 @@ export default class NewDream extends Component {
             <Checkbox
               label="Lucid"
               style={styles.checkbox}
-              onClick={() => this.onColor("Lucid")}
+              onClick={(e) => this.onColor(e, "Lucid")}
             />
             <Checkbox
               label="Nightmare"
               style={styles.checkbox}
-              onClick={() => this.onColor("Nightmare")}
+              onClick={(e) => this.onColor(e, "Nightmare")}
             />
             <Checkbox
               label="Epic"
               style={styles.checkbox}
-              onClick={() => this.onColor("Epic")}
+              onClick={(e) => this.onColor(e, "Epic")}
             />
             <Checkbox
               label="Recurring"
               style={styles.checkbox}
-              onClick={() => this.onColor("Recurring")}
+              onClick={(e) => this.onColor(e, "Recurring")}
             />
             <Checkbox
               label="Adult"
               style={styles.checkbox}
-              onClick={() => this.onColor("Adult")}
+              onClick={(e) => this.onColor(e, "Adult")}
             />
           </div>
           <div className="saveButton">
