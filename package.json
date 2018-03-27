@@ -1,32 +1,41 @@
 {
-  "name": "dreamers-app",
-  "version": "1.0.0",
-  "description": "built with single directory and served to heroku",
-  "engines": {
-    "node": "6.11.x"
-  },
   "scripts": {
-    "start": "node server/src/server.js",
-    "dev:start": "nodemon server/src/server.js",
-    "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd ../server/ && npm install"
+    "dev": "webpack --mode development --watch",
+    "start": "nodemon server",
+    "test": "jest"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "react-ui/node_modules"
-  ],
-  "dependencies": {
-    "express": "^4.14.1"
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.1",
+    "connect-mongo": "^2.0.1",
+    "css-loader": "^0.28.11",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.0.7",
+    "jest": "^22.4.2",
+    "mini-css-extract-plugin": "^0.2.0",
+    "mongoose": "^5.0.11",
+    "morgan": "^1.9.0",
+    "node-sass": "^4.7.2",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sass-loader": "^6.0.7",
+    "standard": "^11.0.0",
+    "standard-loader": "^6.0.1",
+    "style-loader": "^0.20.3",
+    "tapable": "1.0.0-beta.5",
+    "transform-runtime": "^0.0.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mars/heroku-cra-node.git"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "create-react-app",
-    "react"
-  ],
-  "license": "MIT",
-  "devDependencies": {}
+  "dependencies": {}
 }
