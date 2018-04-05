@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "webpack --mode development --watch",
     "start": "nodemon server",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "babel-loader": "^7.1.2",
@@ -13,11 +13,14 @@
     "connect-mongo": "^2.0.1",
     "css-loader": "^0.28.11",
     "dotenv": "^5.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.7",
     "jest": "^22.4.2",
+    "jest-css-modules-transform": "^1.0.5",
     "mini-css-extract-plugin": "^0.2.0",
     "mongoose": "^5.0.11",
     "morgan": "^1.9.0",
@@ -26,6 +29,7 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "sass-loader": "^6.0.7",
@@ -37,5 +41,13 @@
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "redux": "^3.7.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  }
 }

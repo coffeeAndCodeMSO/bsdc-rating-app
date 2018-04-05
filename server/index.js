@@ -62,7 +62,6 @@ app.use(passport.session())
 
 app.use('/auth', require('./auth'))
 app.use(express.static(path.resolve(__dirname, '../dist')))
-console.log("after use")
 app.use('/api', router);
 
 // ==== Starting Server =====
