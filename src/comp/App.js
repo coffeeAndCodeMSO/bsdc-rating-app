@@ -1,5 +1,7 @@
 import React, { Component} from 'react'
 import Counter from './Counter.js'
+import Header from './Header.js'
+import Main from './Main.js'
 import style from '../css/App.scss'
 
 export default class App extends Component {
@@ -9,10 +11,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1 style={style.body}>
-          Hello to the World!
-        </h1>
+      <div style={style.body}>
+        <Header />
+        <Main />
       </div>
     )
   }

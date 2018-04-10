@@ -1,7 +1,12 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: blue;
+$flex-box: flex;
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+}
+
+flexContainer {
+  display: $flex-box;
 }
