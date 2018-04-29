@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 
 const styles = {
   header : {
+    position: 'absolute',
+    top:'0px',
+    right: '0px',
+    left: '0px',
     width : '100%',
     backgroundColor: '#324a5f',
     display: 'flex',

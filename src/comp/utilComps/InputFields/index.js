@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import './styles.css'
+
+/**
+*@prop {func} validator @arg {InputFields.state} @returns {boolean}
+* * * checks whether or not the field data is okay for submission
+*
+*@prop {Array<Object<String>>} fields -
+* * * Defines what fields will be displayed and controlled
+*/
 
 export default class InputFields extends Component {
   constructor(props) {
     super(props)
     this.state={}
 
-    props.fields.forEach(f => {
-        console.log(f)
-        this.state[f.name] = ''
-    })
+    props.fields.forEach(f => this.state[f.name] = '')
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -16,23 +23,19 @@ export default class InputFields extends Component {
 
   onChange(e) {
     const { name, value } = e.target
-    console.log(e.target.value, name)
-    console.log(this.props.fields)
     this.setState({[name]: value})
-
-    console.log(this.state)
   }
 
   onSubmit(e) {
     e.preventDefault();
     if (this.props.validator(this.state)) {
-      console.log(this.state);
+      // TODO: Hook up redux action to submit form data to the user api
     }
   }
 
   render() {
     return(
-      <form className="InputsFields" onSubmit={this.onSubmit}>
+      <form className="InputFields" onSubmit={this.onSubmit}>
         {
           this.props.fields.map(f => (
             <input
@@ -48,5 +51,9 @@ export default class InputFields extends Component {
       </form>
     )
   }
+}
 
+InputFields.propTypes = {
+  validator: PropTypes.func.isRequired,
+  fields: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired
 }
