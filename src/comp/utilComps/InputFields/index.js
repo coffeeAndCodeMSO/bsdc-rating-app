@@ -8,6 +8,9 @@ import './styles.css'
 *
 *@prop {Array<Object<String>>} fields -
 * * * Defines what fields will be displayed and controlled
+*
+*@prop {String} formName -
+* * * Value to be placed on submit button
 */
 
 export default class InputFields extends Component {
@@ -38,16 +41,22 @@ export default class InputFields extends Component {
       <form className="InputFields" onSubmit={this.onSubmit}>
         {
           this.props.fields.map(f => (
-            <input
-              key={f.name}
-              className={f.class || "InputFieldDefault"}
-              type={f.type || "text"}
-              name={f.name}
-              value={this.state[f.name]}
-              onChange={this.onChange}
-            />
+            <div className="InputWrapper">
+              <p>{ f.name }</p>
+              <input
+                key={f.name}
+                className={f.class || "InputFieldDefault"}
+                type={f.type || "text"}
+                name={f.name}
+                value={this.state[f.name]}
+                onChange={this.onChange}
+              />
+            </div>
           ))
         }
+        <div className="ButtonRow">
+          <input type="submit" value={this.props.formName} />
+        </div>
       </form>
     )
   }
@@ -55,5 +64,6 @@ export default class InputFields extends Component {
 
 InputFields.propTypes = {
   validator: PropTypes.func.isRequired,
-  fields: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired
+  fields: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+  formName: PropTypes.string
 }

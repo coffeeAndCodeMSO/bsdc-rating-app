@@ -4,8 +4,27 @@
   align-items: center;
   background: white;
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 10%;
 }
 
-.InputFields > input {
-  margin: 10px;
+.InputFields > .InputWrapper {
+
+}
+
+.InputFields > .InputWrapper > p {
+  color: black;
+}
+
+.InputFields > .InputWrapper > input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid silver;
+}
+
+.ButtonRow {
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-end;
+  width: 100%;
 }
