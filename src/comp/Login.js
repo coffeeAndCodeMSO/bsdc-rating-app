@@ -16,6 +16,9 @@ const validator = (stateObj) => {
 
 const Login = () => (
   <div className="Login">
+    <div className="FunContent">
+      <p>Fun Content here</p>
+    </div>
     <InputFields fields={fields} validator={validator} formName={"Login"}/>
   </div>
 )

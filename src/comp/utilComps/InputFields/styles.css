@@ -2,9 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: white;
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  padding: 10%;
 }
 
 .InputFields > .InputWrapper {
@@ -20,6 +17,11 @@
   border-left: none;
   border-right: none;
   border-bottom: 1px solid silver;
+  width: 100%;
+}
+
+input:focus {
+    outline:none !important;
 }
 
 .ButtonRow {

@@ -9,10 +9,10 @@ import rootReducer from './reducers'
 const store = createStore(rootReducer)
 
 render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 )

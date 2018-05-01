@@ -64,6 +64,10 @@ app.use('/auth', require('./auth'))
 app.use(express.static(path.resolve(__dirname, '../dist')))
 app.use('/api', router);
 
+app.get('/*', (req, res) => {
+	res.sendFile(path.resolve('dist/index.html'));
+});
+
 // ==== Starting Server =====
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT} 🐱 🎃 `)
