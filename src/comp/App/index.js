@@ -1,7 +1,8 @@
 import React, { Component} from 'react'
-import Counter from './Counter.js'
-import Header from './Header.js'
-import Main from './Main.js'
+import Counter from '../Counter.js'
+import Header from '../Header.js'
+import Main from '../Main'
+import './styles.css'
 
 const styles = {
   wrapper : {

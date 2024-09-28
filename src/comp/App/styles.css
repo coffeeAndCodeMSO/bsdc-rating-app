@@ -1,0 +1,23 @@
+html, body {
+  height: 100%;
+  width:100%;
+  background: #f2f2f2;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FunContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+}
+
+.Login {
+  display: flex;
+  background: white;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 20%;
+}

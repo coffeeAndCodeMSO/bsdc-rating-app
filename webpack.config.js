@@ -4,6 +4,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -38,6 +44,9 @@ module.exports = {
       },
     ]
   },
+  devServer: {
+   historyApiFallback: true,
+ },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "bundle.css"
